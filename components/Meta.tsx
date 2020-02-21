@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Head from 'next/head'
 
 const Meta: React.FC = () => (
   <Head>
@@ -10,6 +10,6 @@ const Meta: React.FC = () => (
     <meta name="description" content="Free Web tutorials" />
     <link rel="shortcut icon" href="/public/images/favicon.ico" />
   </Head>
-);
+)
 
-export default Meta;
+export default Meta
