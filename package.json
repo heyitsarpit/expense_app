@@ -1,0 +1,45 @@
+{
+  "name": "expense_app",
+  "version": "1.0.0",
+  "description": "A app that lists expenses and allows upload of receipts. Pleo frontend challenge",
+  "main": "index.js",
+  "author": "Arpit Bharti<arpitbharti73@gmail.com>",
+  "repository": "https://github.com/arpit73/expense_app",
+  "license": "MIT",
+  "keywords": [
+    "next",
+    "react",
+    "redux",
+    "typescript",
+    "styled-components",
+    "pleo",
+    "challenge"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^9.2.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.4",
+    "@types/react": "^16.9.21",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-redux": "^7.1.7",
+    "@types/redux-logger": "^3.0.7",
+    "@types/styled-components": "^5.0.0",
+    "babel-plugin-styled-components": "^1.10.7",
+    "redux-devtools-extension": "^2.13.8",
+    "typescript": "^3.8.2"
+  }
+}
