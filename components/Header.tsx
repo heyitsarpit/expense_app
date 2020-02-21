@@ -3,8 +3,8 @@ import LanguageSelector from './LanguageSelector'
 
 const Header: React.FC = () => (
   <div>
-    <ColorThemeSelector/>
-    <LanguageSelector/>
+    <ColorThemeSelector />
+    <LanguageSelector />
   </div>
 )
 
