@@ -5,7 +5,7 @@ const defaultView: ViewState = {
   offset: 0,
   limit: 10,
   language: 'en',
-  theme: window.matchMedia('(prefers-color-scheme: light)') ? 'light' : 'dark'
+  theme: 'dark'
 }
 
 const viewReducer = (state = defaultView, action: ViewActions): ViewState => {
