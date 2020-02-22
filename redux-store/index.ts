@@ -1,5 +1,5 @@
 export * from './store'
 export * from './rootReducer'
 
-export * from './language/langActions'
-export * from './theme/themeActions'
+export * from './view/viewActions'
+export * from './expenses/expenseActions'

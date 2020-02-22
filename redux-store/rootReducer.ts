@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 
-import langReducer from './language/langReducer'
-import themeReducer from './theme/themeReducer'
+import expenseReducer from './expenses/expenseReducer'
+import viewReducer from './view/viewReducer'
 
 const rootReducer = combineReducers({
-  language: langReducer,
-  theme: themeReducer
+  expenses: expenseReducer,
+  view: viewReducer
 })
 
 /**
