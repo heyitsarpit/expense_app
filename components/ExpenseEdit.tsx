@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
 import { postComment } from '../redux-store'
+import ImageUpload from './ImageUpload'
 
 interface EditProps {
   id: string
@@ -10,7 +11,10 @@ interface EditProps {
 
 const ExpenseEdit: React.FC<EditProps> = ({ id }) => {
   const [comment, setComment] = useState('')
+  const [image, changeImage] = useState('')
+
   const dispatch = useDispatch()
+  const addImage = (imgString: string) => changeImage(imgString)
 
   const onFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -30,6 +34,7 @@ const ExpenseEdit: React.FC<EditProps> = ({ id }) => {
           onChange={onTextChange}
           placeholder="Add your comment here ...."
           autoComplete="off"></input>
+        <ImageUpload addImage={addImage} />
         <button type="submit">Save</button>
       </form>
     </>

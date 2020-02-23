@@ -11,7 +11,6 @@ const Item = styled.div`
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas: 'Icon Name Value .' 'Icon Email Merchant .' '. . . .';
   :hover {
-    box-shadow: ;
   }
   .Icon {
     grid-area: Icon;
