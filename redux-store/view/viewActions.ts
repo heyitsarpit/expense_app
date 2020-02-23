@@ -5,7 +5,6 @@ import {
   SwitchLanguage,
   SwitchTheme,
   Theme,
-  ToggleEditMode
 } from './types'
 import { ActionTypes } from './viewActionTypes'
 

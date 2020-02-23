@@ -1,11 +1,7 @@
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
 import getCurrencySymbol from '../lib/getCurrencySymbol'
-import useSelector from '../lib/useSelector'
-import { toggleEditMode } from '../redux-store'
-import expenseReducer from '../redux-store/expenses/expenseReducer'
 import ExpenseEdit from './ExpenseEdit'
 import { Expense } from './types'
 
@@ -47,20 +43,21 @@ const ExpenseCard: React.FC<Expense> = ({
   }
 
   return (
-    <Item className="grid-container" onClick={toggleView}>
-      <div className="Icon"></div>
-      <div className="Name">
-        {first} {last}
-      </div>
-      <div className="Email">{email}</div>
-      <div className="Value">
-        {getCurrencySymbol(currency)}
-        {value}
-      </div>
-      <div className="Merchant">{merchant}</div>
-
+    <>
+      <Item className="grid-container" onClick={toggleView}>
+        <div className="Icon"></div>
+        <div className="Name">
+          {first} {last}
+        </div>
+        <div className="Email">{email}</div>
+        <div className="Value">
+          {getCurrencySymbol(currency)}
+          {value}
+        </div>
+        <div className="Merchant">{merchant}</div>
+      </Item>
       {isActive && <ExpenseEdit id={id} />}
-    </Item>
+    </>
   )
 }
 

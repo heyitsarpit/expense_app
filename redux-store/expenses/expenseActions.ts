@@ -1,6 +1,3 @@
-import axios from 'axios'
-
-import getURL from '../../lib/getURL'
 import { ActionTypes } from './expenseActionTypes'
 import {
   AsyncRequestError,

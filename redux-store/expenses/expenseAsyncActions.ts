@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { getURL, postURL } from '../../lib/getURL'
+import { getURL, postURL } from '../../lib/resolveURL'
 import {
   asyncRequestError,
   asyncRequestPending,
@@ -12,7 +12,7 @@ import { Dispatcher } from './types'
 
 export const fetchExpenses = (limit = 10, offset = 0) => (dispatch: Dispatcher) => {
   const URL = getURL(limit, offset)
-  
+
   dispatch(asyncRequestPending())
 
   axios
@@ -46,7 +46,7 @@ export const postComment = (id: string, comment: string) => (dispatch: Dispatche
 }
 
 export const postReceipt = (id: string, receipt: any) => (dispatch: Dispatcher) => {
-  const URL = postURL(id, receipt)
+  const URL = postURL(id, true)
 
   dispatch(asyncRequestPending())
 

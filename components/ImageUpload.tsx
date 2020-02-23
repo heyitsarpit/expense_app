@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from 'react'
+import { ChangeEvent } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
@@ -7,30 +7,14 @@ interface EditProps {
 }
 
 const ImageUpload: React.FC<EditProps> = ({ id }) => {
-  const [comment, setComment] = useState('')
   const dispatch = useDispatch()
 
-  const onFormSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault()
-    const text = comment.trim()
+    // dispatch(tempImage)
   }
 
-  const onTextChange = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) =>
-    setComment(value)
-
-  return (
-    <>
-      <form onSubmit={onFormSubmit}>
-        <input
-          type="text"
-          value={comment}
-          onChange={onTextChange}
-          placeholder="Add your comment here ...."
-          autoComplete="off"></input>
-        <button type="submit">Save</button>
-      </form>
-    </>
-  )
+  return <input type="file" onChange={onFileChange} />
 }
 
 export default ImageUpload

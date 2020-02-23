@@ -2,6 +2,8 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
+import { postComment } from '../redux-store'
+
 interface EditProps {
   id: string
 }
@@ -13,6 +15,7 @@ const ExpenseEdit: React.FC<EditProps> = ({ id }) => {
   const onFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const text = comment.trim()
+    postComment(id, text)(dispatch)
   }
 
   const onTextChange = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) =>
