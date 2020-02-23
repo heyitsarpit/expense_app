@@ -2,6 +2,8 @@ import { useState } from 'react'
 import styled from 'styled-components'
 
 import getCurrencySymbol from '../lib/getCurrencySymbol'
+import resolveDate from '../lib/resolveDate'
+import useSelector from '../lib/useSelector'
 import ExpenseEdit from './ExpenseEdit'
 import { CardItem } from './styles/CardItem'
 import { Expense } from './types'
@@ -16,13 +18,16 @@ const ExpenseCard: React.FC<Expense> = ({
   user: { first, last, email }
 }) => {
   const [isActive, toggleActive] = useState(false)
+  const language = useSelector((state) => state.view.language)
 
   const toggleView = () => toggleActive(!isActive)
+
+  const resolvedDate = resolveDate(date, language)
 
   return (
     <>
       <CardItem className="grid-container" onClick={toggleView}>
-        <div className="Date">{date}</div>
+        <div className="Date">{resolvedDate}</div>
         <img className="Icon" src={iconPath}></img>
         <div className="Name">
           {first} {last}
