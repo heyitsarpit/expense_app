@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import getURL from '../../lib/getURL'
+import { getURL, postURL } from '../../lib/getURL'
 import {
   asyncRequestError,
   asyncRequestPending,
@@ -10,13 +10,13 @@ import {
 } from './expenseActions'
 import { Dispatcher } from './types'
 
-export const fetchExpenses = () => (dispatch: Dispatcher) => {
-  const URL = getURL()
-
+export const fetchExpenses = (limit = 10, offset = 0) => (dispatch: Dispatcher) => {
+  const URL = getURL(limit, offset)
+  
   dispatch(asyncRequestPending())
 
   axios
-    .get(URL + '/expenses')
+    .get(URL)
     .then((response) => {
       const { expenses } = response.data
       dispatch(fetchExpenseSuccess(expenses))
@@ -27,12 +27,12 @@ export const fetchExpenses = () => (dispatch: Dispatcher) => {
 }
 
 export const postComment = (id: string, comment: string) => (dispatch: Dispatcher) => {
-  const URL = getURL()
+  const URL = postURL(id)
 
   dispatch(asyncRequestPending())
 
   axios
-    .post(`http://3.20.206.58:3000/expenses/${id}`, {
+    .post(URL, {
       comment: comment
     })
     .then(function(response) {
@@ -46,12 +46,12 @@ export const postComment = (id: string, comment: string) => (dispatch: Dispatche
 }
 
 export const postReceipt = (id: string, receipt: any) => (dispatch: Dispatcher) => {
-  const URL = getURL()
+  const URL = postURL(id, receipt)
 
   dispatch(asyncRequestPending())
 
   axios
-    .post('http://localhost:8080/restapi/fileupload', receipt, {
+    .post(URL, receipt, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
