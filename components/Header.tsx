@@ -1,9 +1,9 @@
 import ColorThemeSelector from './ColorThemeSelector'
 import LanguageSelector from './LanguageSelector'
 
-const Header: React.FC = () => (
+const Header: React.FC<any> = ({ setTheme }) => (
   <div>
-    <ColorThemeSelector />
+    <ColorThemeSelector setTheme={setTheme} />
     <LanguageSelector />
   </div>
 )

@@ -5,19 +5,23 @@ import Store from '../redux-store/store'
 import Header from './Header'
 import Meta from './Meta'
 import GlobalStyling from './styles/GlobalStyling'
-import Theme from './styles/Theme'
+import { DarkTheme } from './styles/Theme'
+import { useState } from 'react'
 
 const Container = styled.div``
 
-const Page: React.FC = ({ children }) => (
-  <Provider store={Store}>
-    <ThemeProvider theme={Theme}>
-      <Meta />
-      <GlobalStyling />
-      <Header />
-      <Container>{children}</Container>
-    </ThemeProvider>
-  </Provider>
-)
+const Page: React.FC = ({ children }) => {
+  const [theme, setTheme] = useState(DarkTheme)
 
+  return (
+    <Provider store={Store}>
+      <ThemeProvider theme={theme}>
+        <Meta />
+        <GlobalStyling />
+        <Header setTheme={setTheme}/>
+        <Container>{children}</Container>
+      </ThemeProvider>
+    </Provider>
+  )
+}
 export default Page
