@@ -2,7 +2,8 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
-import { postComment } from '../redux-store'
+import { postComment, postReceipt } from '../redux-store'
+import ImageField from './ImageField'
 import ImageUpload from './ImageUpload'
 
 interface EditProps {
@@ -14,12 +15,18 @@ const ExpenseEdit: React.FC<EditProps> = ({ id }) => {
   const [image, changeImage] = useState('')
 
   const dispatch = useDispatch()
-  const addImage = (imgString: string) => changeImage(imgString)
+  const addImage = (image: string) => changeImage(image)
+  const deleteImage = () => changeImage('')
 
   const onFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const text = comment.trim()
-    postComment(id, text)(dispatch)
+    if (text) {
+      postComment(id, text)(dispatch)
+    }
+    if (image) {
+      postReceipt(id, image)(dispatch)
+    }
   }
 
   const onTextChange = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) =>
@@ -34,7 +41,7 @@ const ExpenseEdit: React.FC<EditProps> = ({ id }) => {
           onChange={onTextChange}
           placeholder="Add your comment here ...."
           autoComplete="off"></input>
-        <ImageUpload addImage={addImage} />
+        <ImageField image={image} addImage={addImage} deleteImage={deleteImage} />
         <button type="submit">Save</button>
       </form>
     </>

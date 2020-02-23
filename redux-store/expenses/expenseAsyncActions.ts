@@ -45,7 +45,7 @@ export const postComment = (id: string, comment: string) => (dispatch: Dispatche
     })
 }
 
-export const postReceipt = (id: string, receipt: any) => (dispatch: Dispatcher) => {
+export const postReceipt = (id: string, receipt: string) => (dispatch: Dispatcher) => {
   const URL = postURL(id, true)
 
   dispatch(asyncRequestPending())

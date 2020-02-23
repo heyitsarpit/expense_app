@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
 interface EditProps {
-  addImage: (value: string) => void
+  addImage: (image: string) => void
 }
 
 const ImageUpload: React.FC<EditProps> = ({ addImage }) => {

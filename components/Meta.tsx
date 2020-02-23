@@ -8,7 +8,7 @@ const Meta: React.FC = () => (
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Arpit Bharti" />
     <meta name="description" content="Free Web tutorials" />
-    <link rel="shortcut icon" href="/public/images/favicon.ico" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
   </Head>
 )
 
