@@ -9,6 +9,7 @@ export interface ViewState {
   language: Locales
   offset: number
   limit: number
+  currentlyEditing: boolean
 }
 
 export interface SwitchLanguage {

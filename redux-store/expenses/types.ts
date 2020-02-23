@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux'
+
 import { ActionTypes } from './expenseActionTypes'
 
 export interface Expense {
@@ -18,15 +20,22 @@ export interface Expense {
   }
 }
 
+export type Dispatcher = ReturnType<typeof useDispatch>
+
 export interface ExpenseState {
   readonly pending: boolean
   readonly expenses: readonly Expense[]
   readonly error: string
 }
 
-export interface FetchingExpensesPending {
-  readonly type: ActionTypes.FETCHING_EXPENSES_PENDING
+export interface AsyncRequestPending {
+  readonly type: ActionTypes.ASYNC_REQUEST_PENDING
   readonly payload: boolean
+}
+
+export interface AsyncRequestError {
+  readonly type: ActionTypes.ASYNC_REQUEST_ERROR
+  readonly payload: string
 }
 
 export interface FetchingExpensesSuccess {
@@ -34,12 +43,19 @@ export interface FetchingExpensesSuccess {
   readonly payload: Expense[]
 }
 
-export interface FetchingExpensesError {
-  readonly type: ActionTypes.FETCHING_EXPENSES_ERROR
-  readonly payload: string
+export interface PostCommentSuccess {
+  readonly type: ActionTypes.POST_COMMENT_SUCCESS
+  readonly payload: string[]
+}
+
+export interface PostReceiptSuccess {
+  readonly type: ActionTypes.POST_RECEIPT_SUCCESS
+  readonly payload: string[]
 }
 
 export type ExpenseActions =
-  | FetchingExpensesPending
+  | AsyncRequestPending
+  | AsyncRequestError
   | FetchingExpensesSuccess
-  | FetchingExpensesError
+  | PostCommentSuccess
+  | PostReceiptSuccess

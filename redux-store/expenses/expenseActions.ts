@@ -3,15 +3,22 @@ import axios from 'axios'
 import getURL from '../../lib/getURL'
 import { ActionTypes } from './expenseActionTypes'
 import {
+  AsyncRequestError,
+  AsyncRequestPending,
   Expense,
-  FetchingExpensesError,
-  FetchingExpensesPending,
-  FetchingExpensesSuccess
+  FetchingExpensesSuccess,
+  PostCommentSuccess,
+  PostReceiptSuccess
 } from './types'
 
-export const fetchExpensePending = (pending = true): FetchingExpensesPending => ({
-  type: ActionTypes.FETCHING_EXPENSES_PENDING,
+export const asyncRequestPending = (pending = true): AsyncRequestPending => ({
+  type: ActionTypes.ASYNC_REQUEST_PENDING,
   payload: pending
+})
+
+export const asyncRequestError = (error: string): AsyncRequestError => ({
+  type: ActionTypes.ASYNC_REQUEST_ERROR,
+  payload: error
 })
 
 export const fetchExpenseSuccess = (expenses: Expense[]): FetchingExpensesSuccess => ({
@@ -19,22 +26,12 @@ export const fetchExpenseSuccess = (expenses: Expense[]): FetchingExpensesSucces
   payload: expenses
 })
 
-export const fetchExpenseError = (error: string): FetchingExpensesError => ({
-  type: ActionTypes.FETCHING_EXPENSES_ERROR,
-  payload: error
+export const postCommentSuccess = (id: string, comment: string): PostCommentSuccess => ({
+  type: ActionTypes.POST_COMMENT_SUCCESS,
+  payload: [id, comment]
 })
 
-export const fetchExpenses = () => (dispatch) => {
-  const URL = getURL()
-
-  dispatch(fetchExpensePending())
-  axios
-    .get(URL + '/expenses')
-    .then((response) => {
-      const { expenses } = response.data
-      dispatch(fetchExpenseSuccess(expenses))
-    })
-    .catch((error) => {
-      dispatch(fetchExpenseError(error.message))
-    })
-}
+export const postReceiptSuccess = (id: string, receipt: string): PostReceiptSuccess => ({
+  type: ActionTypes.POST_RECEIPT_SUCCESS,
+  payload: [id, receipt]
+})

@@ -5,7 +5,8 @@ const defaultView: ViewState = {
   offset: 0,
   limit: 10,
   language: 'en',
-  theme: 'dark'
+  theme: 'dark',
+  currentlyEditing: false
 }
 
 const viewReducer = (state = defaultView, action: ViewActions): ViewState => {

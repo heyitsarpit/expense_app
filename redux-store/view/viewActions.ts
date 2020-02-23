@@ -1,4 +1,12 @@
-import { ChangeLimit, ChangeOffset, Locales, SwitchLanguage, SwitchTheme, Theme } from './types'
+import {
+  ChangeLimit,
+  ChangeOffset,
+  Locales,
+  SwitchLanguage,
+  SwitchTheme,
+  Theme,
+  ToggleEditMode
+} from './types'
 import { ActionTypes } from './viewActionTypes'
 
 export const switchLanguage = (locale: Locales): SwitchLanguage => ({

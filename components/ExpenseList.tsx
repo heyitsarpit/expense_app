@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 
 import useSelector from '../lib/useSelector'
 import { fetchExpenses } from '../redux-store'
-import ExpenseItem from './ExpenseItem'
+import ExpenseCard from './ExpenseCard'
 
 const ExpenseList: React.FC = () => {
   const { expenses } = useSelector((state) => state.expenses)
@@ -16,7 +16,7 @@ const ExpenseList: React.FC = () => {
   return (
     <>
       {expenses.map((expense) => (
-        <ExpenseItem {...expense} key={expense.id} />
+        <ExpenseCard {...expense} key={expense.id} />
       ))}
     </>
   )
