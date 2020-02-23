@@ -9,6 +9,7 @@ const Meta: React.FC = () => (
     <meta name="author" content="Arpit Bharti" />
     <meta name="description" content="Free Web tutorials" />
     <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/styles/reset.css" />
   </Head>
 )
 

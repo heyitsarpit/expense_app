@@ -1,15 +1,17 @@
-const Theme = {}
-
+const theme = {
+  padding: '10'
+}
 export const LightTheme = {
-  bgColour: `rgb(255,255,255)`,
-  cardBgColour: 'rgb(230,230,230)',
-  textColor: `rgb(40,40,40)`
+  ...theme,
+  bgColor: `rgb(255,255,255)`,
+  cardBgColor: 'rgb(230,230,230)',
+  textPrimary: `rgb(40,40,40)`,
+  border: ''
 }
 
 export const DarkTheme = {
-  bgColour: `rgb(40,40,40)`,
-  cardBgColour: 'rgb(30,30,30)',
- textColor: `rgb(255,255,255)`
+  ...theme,
+  bgColor: `rgb(40,40,40)`,
+  cardBgColor: 'rgb(30,30,30)',
+  textPrimary: `rgb(255,255,255)`
 }
-
-export default Theme
