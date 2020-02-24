@@ -13,20 +13,20 @@ interface PaginationProps {
 }
 
 const Pagination: React.FC<PaginationProps> = ({ dispatch, total }) => {
-  const { limit, offset } = useSelector((state) => state.view)
+  // const { limit, offset } = useSelector((state) => state.view)
 
-  if (process.browser) {
-    useEffect(() => {
-      window.addEventListener('scroll', () => {
-        // Hitting the bottom of the page.
-        if (offset < total && window.innerHeight + window.scrollY >= document.body.scrollHeight) {
-          dispatch(changeOffset(limit + offset))
-          console.log('object')
-          // fetchExpenses(limit, offset)(dispatch)
-        }
-      })
-    }, [offset])
-  }
+  // if (process.browser) {
+  //   useEffect(() => {
+  //     window.addEventListener('scroll', () => {
+  //       // Hitting the bottom of the page.
+  //       if (offset < total && window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+  //         dispatch(changeOffset(limit + offset))
+  //         console.log('object')
+  //         // fetchExpenses(limit, offset)(dispatch)
+  //       }
+  //     })
+  //   }, [offset])
+  // }
 
   return <Loader />
 }

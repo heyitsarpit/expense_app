@@ -27,20 +27,24 @@ const ExpenseCard: React.FC<Expense> = ({
 
   return (
     <>
-      <CardItem className="grid-container" onClick={toggleView}>
-        <div className="Date">{resolvedDate}</div>
-        <img className="Icon" src={iconPath}></img>
-        <div className="Name">
-          {first} {last}
+      <CardItem>
+        <div className="grid-container" onClick={toggleView}>
+          <div className="Date">{resolvedDate}</div>
+          <img className="Icon" src={iconPath}></img>
+          <div className="Name">
+            {first} {last}
+          </div>
+          <div className="Email">{email}</div>
+          <div className="Value">
+            {getCurrencySymbol(currency)}
+            {value}
+          </div>
+          <div className="Merchant">{merchant}</div>
         </div>
-        <div className="Email">{email}</div>
-        <div className="Value">
-          {getCurrencySymbol(currency)}
-          {value}
+        <div className="EditBox">
+          {isActive && <ExpenseEdit id={id} storedComment={comment} />}
         </div>
-        <div className="Merchant">{merchant}</div>
       </CardItem>
-      <div className="EditBox">{isActive && <ExpenseEdit id={id} storedComment={comment} />}</div>
     </>
   )
 }

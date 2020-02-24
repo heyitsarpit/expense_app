@@ -1,7 +1,9 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 import styled from 'styled-components'
 
 import useSelector from '../lib/useSelector'
+import SearchButton from './styles/SearchButton'
+import SearchInput from './styles/SearchInput'
 import { Expense } from './types'
 
 interface SearchProps {
@@ -9,54 +11,60 @@ interface SearchProps {
   setFoundExpenses: (expenses: Expense[]) => void
 }
 
-const SearchBox = styled.input`
-  background: transparent;
-  border: none;
-  width: 100%;
-  height: 2em;
-  font-size: 1.5em;
-  font-family: ${(props) => props.theme.fontMain};
-  color: ${(props) => props.theme.textPrimary};
-  border-bottom: solid 1px ${(props) => props.theme.colorUnfocused};
-  ::placeholder {
-    color: ${(props) => props.theme.textSecondary};
-  }
-  :focus {
-    outline: none;
-    border-color: ${(props) => props.theme.textPrimary};
-  }
+const searchImgPath = '/images/search.svg'
+
+const SearchBox = styled.form`
+  display: flex;
+  flex-direction: row;
 `
 
 const Search: React.FC<SearchProps> = ({ setSearching, setFoundExpenses }) => {
   const [searchValue, setSearchValue] = useState('')
   const { expenses } = useSelector((state) => state.expenses)
 
-  const foundExpenses = expenses.map((expense) => {
-    const {
-      merchant,
-      user: { first, last }
-    } = expense
-    const searchTerms = searchValue.split(' ')
-    const result = searchTerms.find(
-      (term) =>
-        first.includes(term) || last.includes(term) || merchant.toLowerCase().includes(term)
-    )
+  const findExpenses = (searchTerms: string[]) =>
+    expenses.filter((expense) => {
+      const merchant = expense.merchant.toLowerCase(),
+        first = expense.user.first.toLowerCase(),
+        last = expense.user.last.toLowerCase()
 
-    return result ? expense : []
-  })
+      const result = searchTerms.filter(
+        (term) => first.includes(term) || last.includes(term) || merchant.includes(term)
+      )
+      return Array.isArray(result) && result.length
+    })
 
-  const onSearchQuery = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(value.trim().toLowerCase())
-    if (value) {
-      setSearching(true)
-      setFoundExpenses(foundExpenses as Expense[])
+  const onQueryChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(value.toLowerCase())
+    searchValue && setSearching(false)
+  }
+
+  const onQuerySearch = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    if (searchValue) {
+      const foundExpenses = findExpenses(searchValue.split(' '))
+      if (Array.isArray(foundExpenses) && foundExpenses.length) {
+        console.log(foundExpenses)
+        setFoundExpenses(foundExpenses)
+        setSearching(true)
+      }
     } else {
       setSearching(false)
     }
   }
 
   return (
-    <SearchBox value={searchValue} onChange={onSearchQuery} placeholder="Search for expenses" />
+    <SearchBox onSubmit={onQuerySearch}>
+      <SearchInput
+        value={searchValue}
+        onChange={onQueryChange}
+        type="text"
+        placeholder="Search for users or merchants"
+      />
+      <SearchButton type="submit">
+        <img src={searchImgPath} />
+      </SearchButton>
+    </SearchBox>
   )
 }
 

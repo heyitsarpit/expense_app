@@ -6,12 +6,12 @@ import SearchItemsList from './SearchItemsList'
 
 const AppWrapper: React.FC = () => {
   const [searching, setSearching] = useState(false)
-  const [foundExpenses, setFoundExpenses] = useState([])
+  const [expenses, setFoundExpenses] = useState([])
 
   return (
     <div>
       <Search setSearching={setSearching} setFoundExpenses={setFoundExpenses} />
-      {searching ? <SearchItemsList expenses={foundExpenses} /> : <ExpenseListWrapper />}
+      {searching ? <SearchItemsList expenses={expenses} /> : <ExpenseListWrapper />}
     </div>
   )
 }

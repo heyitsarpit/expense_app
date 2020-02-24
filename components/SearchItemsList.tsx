@@ -1,11 +1,11 @@
-import { Expense } from './types'
 import ExpenseList from './ExpenseList'
+import { Expense } from './types'
 
 interface SearchItemsProps {
-  expenses: Expense[]
+  readonly expenses: readonly Expense[]
 }
 
-const SearchItemsList: React.FC<SearchItemsProps> = ({expenses}) => {
+const SearchItemsList: React.FC<SearchItemsProps> = ({ expenses }) => {
   return <ExpenseList expenses={expenses} />
 }
 
