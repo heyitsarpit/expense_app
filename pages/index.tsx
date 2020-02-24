@@ -1,14 +1,12 @@
-import ExpenseList from '../components/ExpenseList'
-import ExpenseListWrapper from '../components/ExpenseListWrapper'
+import AppWrapper from '../components/AppWrapper'
 import Page from '../components/Page'
 
-const Home: React.FC = () => (
-  <Page>
-    <div>
-      <ExpenseListWrapper />
-    </div>
-  </Page>
-)
+const Home: React.FC = () => {
+  return (
+    <Page>
+      <AppWrapper />
+    </Page>
+  )
+}
 
 export default Home
-

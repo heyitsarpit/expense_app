@@ -10,7 +10,10 @@ const Meta: React.FC = () => (
     <meta name="description" content="Free Web tutorials" />
     <link rel="shortcut icon" href="/images/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="/styles/reset.css" />
-    <link href="https://fonts.googleapis.com/css?family=Fira+Mono|Work+Sans&display=swap" rel="stylesheet"/> 
+    <link
+      href="https://fonts.googleapis.com/css?family=Fira+Mono|Work+Sans&display=swap"
+      rel="stylesheet"
+    />
   </Head>
 )
 

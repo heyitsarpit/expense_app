@@ -7,8 +7,7 @@ import { switchLanguage } from '../redux-store'
 type Locales = 'en' | 'fr'
 
 const Select = styled.select``
-  // background-color: ${(props) => props.theme.bgColor};
-
+// background-color: ${(props) => props.theme.bgColor};
 
 const LanguageSelector: React.FC = () => {
   const [language, setLanguage] = useState('en')

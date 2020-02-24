@@ -40,7 +40,7 @@ const ExpenseCard: React.FC<Expense> = ({
         </div>
         <div className="Merchant">{merchant}</div>
       </CardItem>
-      <div className="EditBox">{isActive && <ExpenseEdit id={id} storedComment={comment}/>}</div>
+      <div className="EditBox">{isActive && <ExpenseEdit id={id} storedComment={comment} />}</div>
     </>
   )
 }

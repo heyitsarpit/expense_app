@@ -21,7 +21,7 @@ const Pagination: React.FC<PaginationProps> = ({ dispatch, total }) => {
         // Hitting the bottom of the page.
         if (offset < total && window.innerHeight + window.scrollY >= document.body.scrollHeight) {
           dispatch(changeOffset(limit + offset))
-          console.log("object");
+          console.log('object')
           // fetchExpenses(limit, offset)(dispatch)
         }
       })

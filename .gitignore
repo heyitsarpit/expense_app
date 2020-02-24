@@ -9,4 +9,7 @@ node_modules/
 
 # Secret environement variables
 .env
+
+# Deployemt related
 .now
+out

@@ -19,7 +19,7 @@ export const fetchExpenses = (limit = 20, offset = 0) => (dispatch: Dispatcher) 
     .get(URL)
     .then((response) => {
       const { expenses, total } = response.data
-      dispatch(fetchExpenseSuccess(expenses,total))
+      dispatch(fetchExpenseSuccess(expenses, total))
     })
     .catch((error) => {
       dispatch(asyncRequestError(error.message))
