@@ -18,9 +18,12 @@ export const asyncRequestError = (error: string): AsyncRequestError => ({
   payload: error
 })
 
-export const fetchExpenseSuccess = (expenses: Expense[]): FetchingExpensesSuccess => ({
+export const fetchExpenseSuccess = (
+  expenses: Expense[],
+  total: number
+): FetchingExpensesSuccess => ({
   type: ActionTypes.FETCHING_EXPENSES_SUCCESS,
-  payload: expenses
+  payload: [expenses, total]
 })
 
 export const postCommentSuccess = (id: string, comment: string): PostCommentSuccess => ({

@@ -26,6 +26,7 @@ export interface ExpenseState {
   readonly pending: boolean
   readonly expenses: readonly Expense[]
   readonly error: string
+  readonly total: number
 }
 
 export interface AsyncRequestPending {
@@ -40,7 +41,7 @@ export interface AsyncRequestError {
 
 export interface FetchingExpensesSuccess {
   readonly type: ActionTypes.FETCHING_EXPENSES_SUCCESS
-  readonly payload: Expense[]
+  readonly payload: [Expense[], number]
 }
 
 export interface PostCommentSuccess {

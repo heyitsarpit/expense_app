@@ -3,7 +3,7 @@ import { ActionTypes } from './viewActionTypes'
 
 const defaultView: ViewState = {
   offset: 0,
-  limit: 10,
+  limit: 20,
   language: 'en',
   theme: 'dark',
   currentlyEditing: false

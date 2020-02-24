@@ -4,6 +4,7 @@ import { ExpenseActions, ExpenseState } from './types'
 const defaultExpenses: ExpenseState = {
   pending: true,
   expenses: [],
+  total: 168,
   error: ''
 }
 
@@ -28,7 +29,8 @@ const expenseReducer = (state = defaultExpenses, action: ExpenseActions): Expens
         ...state,
         pending: false,
         error: '',
-        expenses: action.payload
+        expenses: [...state.expenses, ...action.payload[0]],
+        total: action.payload[1]
       }
 
     case ActionTypes.POST_COMMENT_SUCCESS:

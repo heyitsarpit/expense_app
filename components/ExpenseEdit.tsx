@@ -2,16 +2,32 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
+import useSelector from '../lib/useSelector'
 import { postComment, postReceipt } from '../redux-store'
 import ImageField from './ImageField'
 import ImageUpload from './ImageUpload'
 
 interface EditProps {
   id: string
+  storedComment: string
 }
 
-const ExpenseEdit: React.FC<EditProps> = ({ id }) => {
-  const [comment, setComment] = useState('')
+const CommentInput = styled.input`
+  background: transparent;
+  border: none;
+  color: ${(props) => props.theme.textPrimary};
+  border-bottom: solid 1px ${(props) => props.theme.colorUnfocused};
+  ::placeholder {
+    color: ${(props) => props.theme.textSecondary};
+  }
+  :focus {
+    outline: none;
+    border-color: ${(props) => props.theme.textPrimary};
+  }
+`
+
+const ExpenseEdit: React.FC<EditProps> = ({ id, storedComment }) => {
+  const [comment, setComment] = useState(storedComment)
   const [image, changeImage] = useState('')
 
   const dispatch = useDispatch()
@@ -20,29 +36,33 @@ const ExpenseEdit: React.FC<EditProps> = ({ id }) => {
 
   const onFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    const text = comment.trim()
-    if (text) {
-      postComment(id, text)(dispatch)
-    }
-    if (image) {
-      postReceipt(id, image)(dispatch)
-    }
+    comment && postComment(id, comment)(dispatch)
+    image && postReceipt(id, image)(dispatch)
   }
 
   const onTextChange = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) =>
-    setComment(value)
+    setComment(value.trim())
 
   return (
     <>
       <form onSubmit={onFormSubmit}>
-        <input
+        <CommentInput
+          className="Comment"
           type="text"
           value={comment}
           onChange={onTextChange}
           placeholder="Add your comment here ...."
-          autoComplete="off"></input>
-        <ImageField image={image} addImage={addImage} deleteImage={deleteImage} />
-        <button type="submit">Save</button>
+          autoComplete="off"
+        />
+        <ImageField
+          className="Image"
+          image={image}
+          addImage={addImage}
+          deleteImage={deleteImage}
+        />
+        <button className="Save" type="submit">
+          Save
+        </button>
       </form>
     </>
   )

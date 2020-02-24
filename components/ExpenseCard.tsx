@@ -14,6 +14,7 @@ const ExpenseCard: React.FC<Expense> = ({
   id,
   date,
   merchant,
+  comment,
   amount: { currency, value },
   user: { first, last, email }
 }) => {
@@ -39,7 +40,7 @@ const ExpenseCard: React.FC<Expense> = ({
         </div>
         <div className="Merchant">{merchant}</div>
       </CardItem>
-      <div className="EditBox">{isActive && <ExpenseEdit id={id} />}</div>
+      <div className="EditBox">{isActive && <ExpenseEdit id={id} storedComment={comment}/>}</div>
     </>
   )
 }

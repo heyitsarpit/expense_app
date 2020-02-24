@@ -10,7 +10,7 @@ import {
 } from './expenseActions'
 import { Dispatcher } from './types'
 
-export const fetchExpenses = (limit = 10, offset = 0) => (dispatch: Dispatcher) => {
+export const fetchExpenses = (limit = 20, offset = 0) => (dispatch: Dispatcher) => {
   const URL = getURL(limit, offset)
 
   dispatch(asyncRequestPending())
@@ -18,8 +18,8 @@ export const fetchExpenses = (limit = 10, offset = 0) => (dispatch: Dispatcher) 
   axios
     .get(URL)
     .then((response) => {
-      const { expenses } = response.data
-      dispatch(fetchExpenseSuccess(expenses))
+      const { expenses, total } = response.data
+      dispatch(fetchExpenseSuccess(expenses,total))
     })
     .catch((error) => {
       dispatch(asyncRequestError(error.message))

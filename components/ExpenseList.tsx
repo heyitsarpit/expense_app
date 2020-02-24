@@ -1,18 +1,12 @@
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
 
-import useSelector from '../lib/useSelector'
-import { fetchExpenses } from '../redux-store'
 import ExpenseCard from './ExpenseCard'
+import { Expense } from './types'
 
-const ExpenseList: React.FC = () => {
-  const { expenses } = useSelector((state) => state.expenses)
-  const dispatch = useDispatch()
+interface ExpenseListProps {
+  readonly expenses: readonly Expense[]
+}
 
-  useEffect(() => {
-    fetchExpenses()(dispatch)
-  }, [])
-
+const ExpenseList: React.FC<ExpenseListProps> = ({ expenses }) => {
   return (
     <>
       {expenses.map((expense) => (

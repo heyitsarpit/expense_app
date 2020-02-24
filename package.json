@@ -20,6 +20,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "export": "next export",
     "prettier": "prettier --write './**/*.{ts,tsx}' --config ./.prettierrc --ignore-path ./.gitignore"
   },
   "pre-commit": [
@@ -34,10 +35,12 @@
   "dependencies": {
     "axios": "^0.19.2",
     "date-fns": "^2.9.0",
+    "global": "^4.4.0",
     "next": "^9.2.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-redux": "^7.2.0",
+    "react-select": "^3.0.8",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",

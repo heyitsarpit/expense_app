@@ -9,3 +9,4 @@ node_modules/
 
 # Secret environement variables
 .env
+.now

@@ -5,6 +5,7 @@ interface ImageFieldProps {
   image: string
   addImage: (image: string) => void
   deleteImage: () => void
+  className: string
 }
 
 const ImageField: React.FC<ImageFieldProps> = ({ image, addImage, deleteImage }) => {

@@ -8,6 +8,7 @@ const sunPath = '/images/sun.svg'
 
 const IMG = styled.img`
   width: 40px;
+  cursor: pointer;
 `
 
 const ColorThemeSelector: React.FC<any> = ({ setTheme }) => {
