@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import { useTranslation } from '../lib/translate'
 
 interface ImagePreviewProps {
@@ -39,7 +40,7 @@ const ImagePreview: React.FC<ImagePreviewProps> = ({ image, deleteImage }) => {
       {image && (
         <div>
           {/* <button>View</button> */}
-      <DeleteImage onClick={() => deleteImage()}>{t("common:deleteImage")}</DeleteImage>
+          <DeleteImage onClick={() => deleteImage()}>{t('common:deleteImage')}</DeleteImage>
         </div>
       )}
     </PreviewWrapper>

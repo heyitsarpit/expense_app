@@ -7,26 +7,24 @@ import { changeOffset, fetchExpenses } from '../redux-store'
 const Loader: React.FC = () => <div>Loader</div>
 const Finished: React.FC = () => <div>No More Item Left.</div>
 
-interface PaginationProps {
-  dispatch: ReturnType<typeof useDispatch>
-  total: number
-}
-
-const Pagination: React.FC<PaginationProps> = ({ dispatch, total }) => {
+const Pagination: React.FC = () => {
+  // const dispatch = useDispatch()
   // const { limit, offset } = useSelector((state) => state.view)
+  // const { total } = useSelector((state) => state.expenses)
+  // const [loading, setLoading] = useState(false)
 
-  // if (process.browser) {
-  //   useEffect(() => {
-  //     window.addEventListener('scroll', () => {
-  //       // Hitting the bottom of the page.
-  //       if (offset < total && window.innerHeight + window.scrollY >= document.body.scrollHeight) {
-  //         dispatch(changeOffset(limit + offset))
-  //         console.log('object')
-  //         // fetchExpenses(limit, offset)(dispatch)
-  //       }
-  //     })
-  //   }, [offset])
+  // if (loading && offset < total) {
+  //   dispatch(changeOffset(limit + offset))
+  //   console.log('object')
   // }
+
+  // useEffect(() => {
+  //   window.addEventListener('scroll', () => {
+  //     if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+  //       setLoading(true)
+  //     }
+  //   })
+  // }, [])
 
   return <Loader />
 }

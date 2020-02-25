@@ -9,10 +9,8 @@ import Pagination from './Pagination'
 const ExpenseListWrapper: React.FC = () => {
   const dispatch = useDispatch()
 
-  const { expenses, total } = useSelector((state) => state.expenses)
+  const { expenses } = useSelector((state) => state.expenses)
   const { limit } = useSelector((state) => state.view)
-
-  const paginationProps = { dispatch, total }
 
   useEffect(() => {
     // limit=20,offset=0
@@ -22,7 +20,7 @@ const ExpenseListWrapper: React.FC = () => {
   return (
     <div>
       <ExpenseList expenses={expenses} />
-      <Pagination {...paginationProps} />
+      <Pagination />
     </div>
   )
 }

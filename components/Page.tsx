@@ -10,8 +10,6 @@ import GlobalStyles from './styles/GlobalStyles'
 import { DarkTheme } from './styles/Theme'
 
 const Container = styled.div`
-  height: 100%;
-  width: 100%;
   color: ${(props) => props.theme.textPrimary};
   background: ${(props) => props.theme.bgColor};
 `

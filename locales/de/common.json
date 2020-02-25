@@ -1,9 +1,9 @@
 {
-    "language": "Sprache",
-    "searchPlaceholder": "Suchen Sie nach Benutzern oder Händlern....",
-    "commentPlaceHolder": "Fügen Sie hier Ihren Kommentar hinzu ....",
-    "save": "Änderungen speichern",
-    "deleteImage": "Lösche Bild",
-    "footerCredits": "Hergestellt mit ❤ von",
-    "headingTitle": "Pleo Kosten Tracker"
+  "language": "Sprache",
+  "searchPlaceholder": "Suchen Sie nach Benutzern oder Händlern....",
+  "commentPlaceHolder": "Fügen Sie hier Ihren Kommentar hinzu ....",
+  "save": "Änderungen speichern",
+  "deleteImage": "Lösche Bild",
+  "footerCredits": "Hergestellt mit ❤ von ",
+  "headingTitle": "Pleo Kosten Tracker"
 }

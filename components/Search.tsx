@@ -18,6 +18,7 @@ const SearchBox = styled.form`
   display: flex;
   flex-direction: row;
   padding: 0.5em;
+  margin-top: 2em;
   border-bottom: solid 1px ${(props) => props.theme.colorUnfocused};
   :hover {
     outline: none;

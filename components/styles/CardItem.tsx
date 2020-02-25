@@ -30,7 +30,7 @@ export const CardItem = styled.div`
       .Save {
         grid-area: Save;
         width: 40%;
-        margin : 0 auto;
+        margin: 0 auto;
         background: transparent;
         color: ${(props) => props.theme.textPrimary};
         font-family: ${(props) => props.theme.fontSecondary};

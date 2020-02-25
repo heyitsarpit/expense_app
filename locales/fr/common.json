@@ -1,9 +1,9 @@
 {
-    "language": "Langue",
-    "searchPlaceholder": "Rechercher des utilisateurs ou des marchands....",
-    "commentPlaceHolder": "Ajoutez votre commentaire ici ....",
-    "save": "Sauvegarder",
-    "deleteImage": "Supprimer l'image",
-    "footerCredits":"Fabriqué avec ❤ par",
-    "headingTitle":"Pleo Suivi des Dépenses"
+  "language": "Langue",
+  "searchPlaceholder": "Rechercher des utilisateurs ou des marchands....",
+  "commentPlaceHolder": "Ajoutez votre commentaire ici ....",
+  "save": "Sauvegarder",
+  "deleteImage": "Supprimer l'image",
+  "footerCredits": "Fabriqué avec ❤ par ",
+  "headingTitle": "Pleo Suivi des Dépenses"
 }

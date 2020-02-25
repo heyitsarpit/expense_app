@@ -10,8 +10,13 @@ const Wrapper = styled.div`
   justify-content: space-between;
   max-width: 60%;
   margin: 0 auto;
-  margin-top: 1em;
   background: ${(props) => props.theme.bgColor};
+  flex-basis: content;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
 `
 const Title = styled.div`
   font-size: 1.2em;
