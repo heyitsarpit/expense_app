@@ -26,7 +26,6 @@ const ExpenseCard: React.FC<Expense> = ({
   const resolvedDate = resolveDate(date, language)
 
   return (
-    <>
       <CardItem>
         <div className="grid-container" onClick={toggleView}>
           <div className="Date">{resolvedDate}</div>
@@ -34,7 +33,9 @@ const ExpenseCard: React.FC<Expense> = ({
           <div className="Name">
             {first} {last}
           </div>
-          <div className="Email">{email}</div>
+          <a href={`mailto:${email}`} className="Email" rel="noopener noreferrer" target="_blank">
+            {email}
+          </a>
           <div className="Value">
             {getCurrencySymbol(currency)}
             {value}
@@ -45,7 +46,6 @@ const ExpenseCard: React.FC<Expense> = ({
           {isActive && <ExpenseEdit id={id} storedComment={comment} />}
         </div>
       </CardItem>
-    </>
   )
 }
 

@@ -31,7 +31,7 @@ const Header: React.FC<any> = ({ setTheme }) => {
   return (
     <Wrapper>
       <ColorThemeSelector setTheme={setTheme} />
-      <Title>{t('common:headingTitle')}</Title>
+      {/* <Title>{t('common:headingTitle')}</Title> */}
       <LanguageSelector />
     </Wrapper>
   )

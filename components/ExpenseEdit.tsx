@@ -37,6 +37,7 @@ const ExpenseEdit: React.FC<EditProps> = ({ id, storedComment }) => {
 
   const onFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    setActive(false)
     if (comment) {
       postComment(id, comment)(dispatch)
     }
@@ -48,6 +49,9 @@ const ExpenseEdit: React.FC<EditProps> = ({ id, storedComment }) => {
   const onTextChange = ({ currentTarget: { value } }: ChangeEvent<HTMLTextAreaElement>) => {
     setComment(value)
     setActive(true)
+    if (!value) {
+      setActive(false)
+    }
   }
 
   const t = useTranslation()

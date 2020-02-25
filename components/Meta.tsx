@@ -5,17 +5,17 @@ import useSelector from '../lib/useSelector'
 
 const Meta: React.FC = () => {
   const t = useTranslation()
-  const theme = useSelector((state) => state.view.theme)
   return (
     <Head>
       <meta charSet="utf-8" />
       <title>{t('common:appTitle')}</title>
-      <meta name="theme-color" content={theme === 'dark' ? '#000' : '#fff'} />
+      <meta name="theme-color" content="#000" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="author" content="Arpit Bharti" />
       <meta name="description" content="Free Web tutorials" />
       <link rel="shortcut icon" href="/images/favicon.ico" />
       <link rel="stylesheet" type="text/css" href="/styles/reset.css" />
+
       <link
         href="https://fonts.googleapis.com/css?family=Fira+Mono|Work+Sans|Playfair+Display&display=swap"
         rel="stylesheet"

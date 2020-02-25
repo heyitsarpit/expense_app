@@ -6,26 +6,30 @@ export interface Theme {
   textPrimary: string
   textSecondary: string
   colorUnfocused: string
+  borderColor: string
+
 }
 
 const theme = {
   padding: '10',
   fontMain: 'Fira Mono',
-  fontSecondary: 'Playfair Display'
+  fontSecondary: 'Playfair Display',
 }
 
 export const LightTheme: Theme = {
   ...theme,
-  bgColor: 'rgb(255,255,255)',
-  textPrimary: 'rgb(1,1,1)',
+  bgColor: '#FFEBCD',
+  textPrimary: '#020202',
+  borderColor: 'white',
   textSecondary: 'rgb(100,100,100)',
   colorUnfocused: 'rgb(150,150,150)'
 }
 
 export const DarkTheme: Theme = {
   ...theme,
-  bgColor: 'rgb(1,1,1)',
-  textPrimary: 'rgb(255,255,255)',
+  bgColor: '#020202',
+  textPrimary: '#FFEBCD',
+  borderColor: 'rgb(23.4%, 23.4%, 23.4%)',
   textSecondary: 'rgb(150,150,150)',
   colorUnfocused: 'rgb(100,100,100)'
 }

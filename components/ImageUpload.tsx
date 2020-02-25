@@ -46,9 +46,6 @@ const ImageUpload: React.FC<EditProps> = ({ addImage, setActive }) => {
     <ImageInputWrapper>
       <label htmlFor="file-input">
         <span>Upload Image</span>
-        <span>
-          <img src={uploadIconPath} />
-        </span>
       </label>
       <input id="file-input" type="file" onChange={onFileChange} name="receipt" accept="image/*" />
     </ImageInputWrapper>

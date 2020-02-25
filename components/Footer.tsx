@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
       <Grow></Grow>
       <FooterWrapper>
         <span>{t('common:footerCredits')} &nbsp; </span>
-        <Author href="https://arpit73.netlify.com/" target="_blank">
+        <Author href="https://arpit73.netlify.com/" rel="noopener noreferrer" target="_blank">
           Arpit Bharti
         </Author>
       </FooterWrapper>
