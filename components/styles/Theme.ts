@@ -11,8 +11,7 @@ export interface Theme {
 const theme = {
   padding: '10',
   fontMain: 'Fira Mono',
-  fontSecondary: 'Playfair Display',
-
+  fontSecondary: 'Playfair Display'
 }
 
 export const LightTheme: Theme = {

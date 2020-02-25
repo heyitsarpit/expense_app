@@ -17,16 +17,22 @@ const Author = styled.a`
   text-decoration: none;
   color: ${(props) => props.theme.textPrimary};
 `
+const Grow = styled.div`
+  flex-grow: 1;
+`
 
 const Footer: React.FC = () => {
   const t = useTranslation()
   return (
-    <FooterWrapper>
-      <span>{t('common:footerCredits')} &nbsp; </span>
-      <Author href="https://arpit73.netlify.com/" target="_blank">
-        Arpit Bharti
-      </Author>
-    </FooterWrapper>
+    <>
+      <Grow></Grow>
+      <FooterWrapper>
+        <span>{t('common:footerCredits')} &nbsp; </span>
+        <Author href="https://arpit73.netlify.com/" target="_blank">
+          Arpit Bharti
+        </Author>
+      </FooterWrapper>
+    </>
   )
 }
 
