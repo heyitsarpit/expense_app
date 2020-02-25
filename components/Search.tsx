@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import styled from 'styled-components'
 
+import { useTranslation } from '../lib/translate'
 import useSelector from '../lib/useSelector'
 import SearchButton from './styles/SearchButton'
 import SearchInput from './styles/SearchInput'
@@ -16,6 +17,12 @@ const searchImgPath = '/images/search.svg'
 const SearchBox = styled.form`
   display: flex;
   flex-direction: row;
+  padding: 0.5em;
+  border-bottom: solid 1px ${(props) => props.theme.colorUnfocused};
+  :hover {
+    outline: none;
+    border-color: ${(props) => props.theme.textPrimary};
+  }
 `
 
 const Search: React.FC<SearchProps> = ({ setSearching, setFoundExpenses }) => {
@@ -34,10 +41,8 @@ const Search: React.FC<SearchProps> = ({ setSearching, setFoundExpenses }) => {
       return Array.isArray(result) && result.length
     })
 
-  const onQueryChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
+  const onQueryChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
     setSearchValue(value.toLowerCase())
-    searchValue && setSearching(false)
-  }
 
   const onQuerySearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -53,13 +58,15 @@ const Search: React.FC<SearchProps> = ({ setSearching, setFoundExpenses }) => {
     }
   }
 
+  const t = useTranslation()
+
   return (
     <SearchBox onSubmit={onQuerySearch}>
       <SearchInput
         value={searchValue}
         onChange={onQueryChange}
         type="text"
-        placeholder="Search for users or merchants"
+        placeholder={t('common:searchPlaceholder')}
       />
       <SearchButton type="submit">
         <img src={searchImgPath} />

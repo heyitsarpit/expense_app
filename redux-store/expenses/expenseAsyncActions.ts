@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+import dataURLtoBlob from '../../lib/dataUrlToBlob'
 import { getURL, postURL } from '../../lib/resolveURL'
 import {
   asyncRequestError,
@@ -49,19 +50,21 @@ export const postReceipt = (id: string, receipt: string) => (dispatch: Dispatche
   const URL = postURL(id, true)
 
   dispatch(asyncRequestPending())
+  const file = dataURLtoBlob(receipt)
+  const formData = new FormData()
+  formData.append('receipt', file)
 
   axios
-    .post(URL, receipt, {
+    .post(URL, formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
     })
     .then((response) => {
-      console.log('SUCCESS!!')
+      console.log(response)
       dispatch(postReceiptSuccess(id, receipt))
     })
     .catch((error) => {
-      console.log('FAILURE!!')
       dispatch(asyncRequestError(error.message))
     })
 }

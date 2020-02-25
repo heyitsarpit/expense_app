@@ -3,9 +3,10 @@ import { Provider } from 'react-redux'
 import styled, { ThemeProvider } from 'styled-components'
 
 import Store from '../redux-store/store'
+import Footer from './Footer'
 import Header from './Header'
 import Meta from './Meta'
-import GlobalStyling from './styles/GlobalStyling'
+import GlobalStyles from './styles/GlobalStyles'
 import { DarkTheme } from './styles/Theme'
 
 const Container = styled.div`
@@ -22,10 +23,10 @@ const Page: React.FC = ({ children }) => {
     <Provider store={Store}>
       <ThemeProvider theme={theme}>
         <Meta />
-        <GlobalStyling>
-          <Header setTheme={setTheme} />
-          <Container>{children}</Container>
-        </GlobalStyling>
+        <GlobalStyles />
+        <Header setTheme={setTheme} />
+        <Container>{children}</Container>
+        <Footer />
       </ThemeProvider>
     </Provider>
   )

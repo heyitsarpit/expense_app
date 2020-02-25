@@ -2,6 +2,7 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
+import { useTranslation } from '../lib/translate'
 import useSelector from '../lib/useSelector'
 import { postComment, postReceipt } from '../redux-store'
 import ImageField from './ImageField'
@@ -12,9 +13,10 @@ interface EditProps {
   storedComment: string
 }
 
-const CommentInput = styled.input`
+const CommentInput = styled.textarea`
   background: transparent;
   border: none;
+  resize: none;
   color: ${(props) => props.theme.textPrimary};
   border-bottom: solid 1px ${(props) => props.theme.colorUnfocused};
   ::placeholder {
@@ -36,22 +38,26 @@ const ExpenseEdit: React.FC<EditProps> = ({ id, storedComment }) => {
 
   const onFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    comment && postComment(id, comment)(dispatch)
-    image && postReceipt(id, image)(dispatch)
+    if (comment) {
+      postComment(id, comment)(dispatch)
+    }
+    if (image) {
+      postReceipt(id, image)(dispatch)
+    }
   }
 
-  const onTextChange = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) =>
+  const onTextChange = ({ currentTarget: { value } }: ChangeEvent<HTMLTextAreaElement>) =>
     setComment(value.trim())
 
+  const t = useTranslation()
   return (
     <>
       <form onSubmit={onFormSubmit}>
         <CommentInput
           className="Comment"
-          type="text"
           value={comment}
           onChange={onTextChange}
-          placeholder="Add your comment here ...."
+          placeholder={t('common:commentPlaceHolder')}
           autoComplete="off"
         />
         <ImageField
@@ -60,8 +66,9 @@ const ExpenseEdit: React.FC<EditProps> = ({ id, storedComment }) => {
           addImage={addImage}
           deleteImage={deleteImage}
         />
+
         <button className="Save" type="submit">
-          Save
+          {t('common:save')}
         </button>
       </form>
     </>

@@ -1,20 +1,15 @@
-import { ChangeEvent, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
+import { useTranslation } from '../lib/translate'
 import { switchLanguage } from '../redux-store'
-
-type Locales = 'en' | 'fr'
 
 const LanguageWrapper = styled.span`
   font-family: ${(props) => props.theme.fontSecondary};
+  color: ${(props) => props.theme.textSecondary};
   font-weight: 200;
   font-stretch: expanded;
-  hr.vertical {
-    height: 100%;
-    width: 0;
-    border: 1px solid black;
-  }
+  align-self: center;
 `
 
 const Language = styled.button`
@@ -29,12 +24,14 @@ const Language = styled.button`
 
 const LanguageSelector: React.FC = () => {
   const dispatch = useDispatch()
+  const t = useTranslation()
 
   return (
     <LanguageWrapper>
-      <span>Language:</span>
+      <span>{t('common:language')}:</span>
       <Language onClick={() => dispatch(switchLanguage('en'))}>EN</Language>
       <Language onClick={() => dispatch(switchLanguage('fr'))}>FR</Language>
+      <Language onClick={() => dispatch(switchLanguage('de'))}>DE</Language>
     </LanguageWrapper>
   )
 }

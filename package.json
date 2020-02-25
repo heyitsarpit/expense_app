@@ -21,7 +21,7 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "prettier": "prettier --write './**/*.{ts,tsx}' --config ./.prettierrc --ignore-path ./.gitignore"
+    "prettier": "prettier --write './**/*.{ts,tsx,json}' --config ./.prettierrc --ignore-path ./.gitignore"
   },
   "pre-commit": [
     "prettier"

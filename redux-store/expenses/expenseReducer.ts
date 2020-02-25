@@ -29,7 +29,7 @@ const expenseReducer = (state = defaultExpenses, action: ExpenseActions): Expens
         ...state,
         pending: false,
         error: '',
-        expenses: [...state.expenses, ...action.payload[0]],
+        expenses: action.payload[0],
         total: action.payload[1]
       }
 

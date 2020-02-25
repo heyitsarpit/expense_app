@@ -1,10 +1,20 @@
+export interface Theme {
+  padding: string
+  fontMain: string
+  fontSecondary: string
+  bgColor: string
+  textPrimary: string
+  textSecondary: string
+  colorUnfocused: string
+}
+
 const theme = {
   padding: '10',
   fontMain: 'Fira Mono',
   fontSecondary: 'Work Sans'
 }
 
-export const LightTheme = {
+export const LightTheme: Theme = {
   ...theme,
   bgColor: 'rgb(255,255,255)',
   textPrimary: 'rgb(1,1,1)',
@@ -12,7 +22,7 @@ export const LightTheme = {
   colorUnfocused: 'rgb(150,150,150)'
 }
 
-export const DarkTheme = {
+export const DarkTheme: Theme = {
   ...theme,
   bgColor: 'rgb(1,1,1)',
   textPrimary: 'rgb(255,255,255)',

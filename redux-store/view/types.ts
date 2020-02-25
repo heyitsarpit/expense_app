@@ -2,7 +2,7 @@ import { ActionTypes } from './viewActionTypes'
 
 export type Theme = 'light' | 'dark'
 
-export type Locales = 'en' | 'fr'
+export type Locales = 'en' | 'fr' | 'de'
 
 export interface ViewState {
   theme: Theme

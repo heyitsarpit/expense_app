@@ -8,13 +8,11 @@ const SearchInput = styled.input`
   font-size: 1.5em;
   font-family: ${(props) => props.theme.fontMain};
   color: ${(props) => props.theme.textPrimary};
-  border-bottom: solid 1px ${(props) => props.theme.colorUnfocused};
   ::placeholder {
     color: ${(props) => props.theme.textSecondary};
   }
   :focus {
     outline: none;
-    border-color: ${(props) => props.theme.textPrimary};
   }
 `
 
