@@ -5,5 +5,9 @@
   "save": "Sauvegarder",
   "deleteImage": "Supprimer l'image",
   "footerCredits": "Fabriqué avec ❤ par ",
-  "headingTitle": "Pleo Suivi des Dépenses"
+  "headingTitle": "Pleo Suivi des Dépenses",
+  "appTitle":"Suivi des Dépenses",
+  "next": "Suivante",
+  "previous":"Précédente"
+
 }

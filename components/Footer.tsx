@@ -9,6 +9,7 @@ const FooterWrapper = styled.div`
   padding: 2em;
   font-family: ${(props) => props.theme.fontSecondary};
   color: ${(props) => props.theme.textPrimary};
+  margin: 0 auto;
 `
 
 const Author = styled.a`
@@ -21,8 +22,7 @@ const Footer: React.FC = () => {
   const t = useTranslation()
   return (
     <FooterWrapper>
-      {t('common:footerCredits')}
-      <span> </span>
+      <span>{t('common:footerCredits')} &nbsp; </span>
       <Author href="https://arpit73.netlify.com/" target="_blank">
         Arpit Bharti
       </Author>

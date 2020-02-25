@@ -13,9 +13,8 @@ const ExpenseListWrapper: React.FC = () => {
   const { limit } = useSelector((state) => state.view)
 
   useEffect(() => {
-    // limit=20,offset=0
     fetchExpenses(limit, 0)(dispatch)
-  }, [])
+  }, [limit])
 
   return (
     <div>

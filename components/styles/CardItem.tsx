@@ -3,11 +3,17 @@ import styled from 'styled-components'
 export const CardItem = styled.div`
   cursor: pointer;
   max-width: 40%;
+  min-width: 30%;
   margin: 0 auto;
   border: transparent;
   border-bottom: solid 1px ${(props) => props.theme.colorUnfocused};
   :hover {
     border-color: ${(props) => props.theme.textPrimary};
+  }
+
+  @media only screen and (max-width: 1052px) {
+    max-width: 80%;
+    min-width: 40%;
   }
 
   .EditBox {
@@ -40,6 +46,9 @@ export const CardItem = styled.div`
         margin-bottom: 1em;
         :focus {
           outline: none;
+        }
+        :disabled {
+          opacity: 0.2;
         }
       }
     }
@@ -89,6 +98,7 @@ export const CardItem = styled.div`
 
     .Merchant {
       grid-area: Merchant;
+      font-stretch: expanded;
       justify-self: end;
       font-family: ${(props) => props.theme.fontSecondary};
       color: ${(props) => props.theme.textSecondary};

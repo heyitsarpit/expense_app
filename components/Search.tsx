@@ -18,10 +18,11 @@ const SearchBox = styled.form`
   display: flex;
   flex-direction: row;
   padding: 0.5em;
-  margin-top: 2em;
   border-bottom: solid 1px ${(props) => props.theme.colorUnfocused};
+  opacity: 0.8;
   :hover {
     outline: none;
+    opacity: 1;
     border-color: ${(props) => props.theme.textPrimary};
   }
 `
@@ -50,7 +51,6 @@ const Search: React.FC<SearchProps> = ({ setSearching, setFoundExpenses }) => {
     if (searchValue) {
       const foundExpenses = findExpenses(searchValue.split(' '))
       if (Array.isArray(foundExpenses) && foundExpenses.length) {
-        console.log(foundExpenses)
         setFoundExpenses(foundExpenses)
         setSearching(true)
       }

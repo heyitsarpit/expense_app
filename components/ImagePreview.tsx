@@ -26,6 +26,7 @@ const DeleteImage = styled.button`
   align-self: flex-end;
   border: solid 1px ${(props) => props.theme.textPrimary};
   float: right;
+  border-radius: 1em;
 
   :focus {
     outline: none;

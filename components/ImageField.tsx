@@ -3,16 +3,17 @@ import ImageUpload from './ImageUpload'
 
 interface ImageFieldProps {
   image: string
-  addImage: (image: string) => void
-  deleteImage: () => void
   className: string
+  deleteImage: () => void
+  addImage: (image: string) => void
+  setActive: (bool: boolean) => void
 }
 
-const ImageField: React.FC<ImageFieldProps> = ({ image, addImage, deleteImage }) => {
+const ImageField: React.FC<ImageFieldProps> = ({ image, addImage, deleteImage, setActive }) => {
   return image ? (
     <ImagePreview image={image} deleteImage={deleteImage} />
   ) : (
-    <ImageUpload addImage={addImage} />
+    <ImageUpload addImage={addImage} setActive={setActive} />
   )
 }
 

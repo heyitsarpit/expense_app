@@ -1,15 +1,17 @@
-import axios from 'axios'
 import { ChangeEvent } from 'react'
-import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
+
 interface EditProps {
   addImage: (image: string) => void
+  setActive: (bool: boolean) => void
 }
 
 const uploadIconPath = '/images/upload.svg'
+
 const ImageInputWrapper = styled.div`
-  cursor: pointer;
   label {
+    cursor: pointer;
+
     width: 90%;
     color: ${(props) => props.theme.textPrimary};
     font-family: ${(props) => props.theme.fontSecondary};
@@ -18,7 +20,8 @@ const ImageInputWrapper = styled.div`
     align-self: flex-end;
     border: solid 1px ${(props) => props.theme.textPrimary};
     float: right;
-
+    border-radius: 1em;
+    text-align: center;
     :focus {
       outline: none;
     }
@@ -28,10 +31,10 @@ const ImageInputWrapper = styled.div`
   }
 `
 
-const ImageUpload: React.FC<EditProps> = ({ addImage }) => {
-  const dispatch = useDispatch()
-
+const ImageUpload: React.FC<EditProps> = ({ addImage, setActive }) => {
   const onFileChange = ({ currentTarget: { files } }: ChangeEvent<HTMLInputElement>) => {
+    setActive(true)
+
     const file = files[0]
     const reader = new FileReader()
     reader.readAsDataURL(file)

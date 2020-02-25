@@ -3,10 +3,8 @@ import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
 import { useTranslation } from '../lib/translate'
-import useSelector from '../lib/useSelector'
 import { postComment, postReceipt } from '../redux-store'
 import ImageField from './ImageField'
-import ImageUpload from './ImageUpload'
 
 interface EditProps {
   id: string
@@ -31,6 +29,7 @@ const CommentInput = styled.textarea`
 const ExpenseEdit: React.FC<EditProps> = ({ id, storedComment }) => {
   const [comment, setComment] = useState(storedComment)
   const [image, changeImage] = useState('')
+  const [active, setActive] = useState(false)
 
   const dispatch = useDispatch()
   const addImage = (image: string) => changeImage(image)
@@ -46,32 +45,33 @@ const ExpenseEdit: React.FC<EditProps> = ({ id, storedComment }) => {
     }
   }
 
-  const onTextChange = ({ currentTarget: { value } }: ChangeEvent<HTMLTextAreaElement>) =>
-    setComment(value.trim())
+  const onTextChange = ({ currentTarget: { value } }: ChangeEvent<HTMLTextAreaElement>) => {
+    setComment(value)
+    setActive(true)
+  }
 
   const t = useTranslation()
   return (
-    <>
-      <form onSubmit={onFormSubmit}>
-        <CommentInput
-          className="Comment"
-          value={comment}
-          onChange={onTextChange}
-          placeholder={t('common:commentPlaceHolder')}
-          autoComplete="off"
-        />
-        <ImageField
-          className="Image"
-          image={image}
-          addImage={addImage}
-          deleteImage={deleteImage}
-        />
+    <form onSubmit={onFormSubmit}>
+      <CommentInput
+        className="Comment"
+        value={comment}
+        onChange={onTextChange}
+        placeholder={t('common:commentPlaceHolder')}
+        autoComplete="off"
+      />
+      <ImageField
+        className="Image"
+        image={image}
+        addImage={addImage}
+        deleteImage={deleteImage}
+        setActive={setActive}
+      />
 
-        <button className="Save" type="submit">
-          {t('common:save')}
-        </button>
-      </form>
-    </>
+      <button className="Save" type="submit" disabled={!active}>
+        {t('common:save')}
+      </button>
+    </form>
   )
 }
 

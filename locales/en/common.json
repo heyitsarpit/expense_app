@@ -5,5 +5,8 @@
   "save": "Save Changes",
   "deleteImage": "Delete Image",
   "footerCredits": "Made with ❤ by ",
-  "headingTitle": "Pleo Expense Tracker"
+  "headingTitle": "Pleo Expense Tracker",
+  "appTitle":"Expense App",
+  "next": "Next",
+  "previous":"Previous"
 }

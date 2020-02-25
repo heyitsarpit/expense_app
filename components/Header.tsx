@@ -8,22 +8,21 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  max-width: 60%;
+  font-size: 1em;
+  width: 60%;
   margin: 0 auto;
   background: ${(props) => props.theme.bgColor};
   flex-basis: content;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-
+  @media only screen and (max-width: 1052px) {
+    width: 80%;
+  }
 `
+
 const Title = styled.div`
   font-size: 1.2em;
   font-family: ${(props) => props.theme.fontSecondary};
   color: ${(props) => props.theme.textPrimary};
-  font-weight: 200;
-  font-stretch: expanded;
+  text-transform: uppercase;
   align-self: center;
 `
 

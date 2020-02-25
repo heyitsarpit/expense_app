@@ -9,6 +9,11 @@ import Meta from './Meta'
 import GlobalStyles from './styles/GlobalStyles'
 import { DarkTheme } from './styles/Theme'
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
 const Container = styled.div`
   color: ${(props) => props.theme.textPrimary};
   background: ${(props) => props.theme.bgColor};
@@ -22,9 +27,11 @@ const Page: React.FC = ({ children }) => {
       <ThemeProvider theme={theme}>
         <Meta />
         <GlobalStyles />
-        <Header setTheme={setTheme} />
-        <Container>{children}</Container>
-        <Footer />
+        <Wrapper>
+          <Header setTheme={setTheme} />
+          <Container>{children}</Container>
+          <Footer />
+        </Wrapper>
       </ThemeProvider>
     </Provider>
   )

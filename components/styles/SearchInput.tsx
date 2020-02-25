@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const SearchInput = styled.input`
-  background: transparent;
+  background: ${(props) => props.theme.bgColor};
   border: none;
   width: 100%;
   height: 2em;
