@@ -1,6 +1,6 @@
 {
   "language": "Language",
-  "searchPlaceholder": "Search for users or merchants....",
+  "searchPlaceholder": "Search for names | merchants | amount | month | year ....",
   "commentPlaceHolder": "Add your comment here ....",
   "save": "Save Changes",
   "uploadImage": "Upload Image",

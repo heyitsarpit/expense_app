@@ -82,7 +82,7 @@ npm run dev
 │
 ├── redux-store - Redux logic lives here
 │   ├── expenses - State related to expenses and async requests
-│   ├── view - State that directly affects the UI
+│   ├── view - Store for language, theme, limit and offset fetching
 ├
 ├── next.config.js - Next config file, the environment variables are defined here for injecting into the app at build time
 ├── .prettier - Config for prettier auto formatter

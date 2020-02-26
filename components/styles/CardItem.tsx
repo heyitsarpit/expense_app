@@ -34,6 +34,7 @@ export const CardItem = styled.div`
         color: ${(props) => props.theme.textPrimary};
         font-family: ${(props) => props.theme.fontSecondary};
         padding: 0.2em;
+        font-size: 0.8em;
         border: solid 1px ${(props) => props.theme.textPrimary};
         border-radius: 1em;
         margin-bottom: 1em;
