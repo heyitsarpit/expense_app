@@ -19,11 +19,7 @@ export const fetchExpenses = (limit = 20, offset = 0) => (dispatch: Dispatcher) 
   NProgress.start()
 
   axios
-    .get(URL, {
-      headers: {
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
+    .get(URL)
     .then((response) => {
       const { expenses, total } = response.data
       dispatch(fetchExpenseSuccess(expenses, total))
@@ -41,17 +37,9 @@ export const postComment = (id: string, comment: string) => (dispatch: Dispatche
   NProgress.start()
 
   axios
-    .post(
-      URL,
-      {
-        comment: comment
-      },
-      {
-        headers: {
-          'Access-Control-Allow-Origin': '*'
-        }
-      }
-    )
+    .post(URL, {
+      comment: comment
+    })
     .then(function(response) {
       NProgress.done()
 
@@ -76,8 +64,7 @@ export const postReceipt = (id: string, receipt: string) => (dispatch: Dispatche
   axios
     .post(URL, formData, {
       headers: {
-        'Content-Type': 'multipart/form-data',
-        'Access-Control-Allow-Origin': '*'
+        'Content-Type': 'multipart/form-data'
       }
     })
     .then((response) => {
