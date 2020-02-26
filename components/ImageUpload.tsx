@@ -25,6 +25,18 @@ const ImageInputWrapper = styled.div`
     :focus {
       outline: none;
     }
+    /* SMARTPHONES PORTRAIT */
+    @media only screen and (min-width: ${(props) =>
+        props.theme.minWidthSmall}px) and (max-width: ${(props) => props.theme.maxWidthSmall}px) {
+      font-size: 0.8em;
+    }
+
+    /* SMARTPHONES LANDSCAPE */
+    @media only screen and (min-width: ${(props) =>
+        props.theme.minWidthMedium}px) and (max-width: ${(props) =>
+        props.theme.maxWidthMedium}px) {
+      font-size: 0.9em;
+    }
   }
   input[type='file'] {
     display: none;

@@ -17,6 +17,7 @@ const PreviewWrapper = styled.div`
     float: right;
   }
 `
+
 const DeleteImage = styled.button`
   width: 90%;
   background: transparent;
@@ -31,6 +32,18 @@ const DeleteImage = styled.button`
 
   :focus {
     outline: none;
+  }
+  /* SMARTPHONES PORTRAIT */
+  @media only screen and (min-width: ${(props) => props.theme.minWidthSmall}px) and (max-width: ${(
+      props
+    ) => props.theme.maxWidthSmall}px) {
+    font-size: 0.8em;
+  }
+
+  /* SMARTPHONES LANDSCAPE */
+  @media only screen and (min-width: ${(props) =>
+      props.theme.minWidthMedium}px) and (max-width: ${(props) => props.theme.maxWidthMedium}px) {
+    font-size: 0.9em;
   }
 `
 

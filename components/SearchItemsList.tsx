@@ -7,7 +7,6 @@ interface SearchItemsProps {
 }
 
 const SearchItemsList: React.FC<SearchItemsProps> = ({ expenses }) => {
-  
   return Array.isArray(expenses) && expenses.length ? (
     <ExpenseList expenses={expenses} />
   ) : (

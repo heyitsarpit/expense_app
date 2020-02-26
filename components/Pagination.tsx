@@ -24,16 +24,20 @@ const PaginationButton = styled.button`
   :focus {
     outline: none;
   }
-`
-const Warning = styled.div`
+
+  /* SMARTPHONES PORTRAIT */
   @media only screen and (min-width: ${(props) => props.theme.minWidthSmall}px) and (max-width: ${(
       props
     ) => props.theme.maxWidthSmall}px) {
-    font-size: 0.8em;
+    font-size: 0.7em;
+    padding: 0.4em;
   }
+
+  /* SMARTPHONES LANDSCAPE */
   @media only screen and (min-width: ${(props) =>
       props.theme.minWidthMedium}px) and (max-width: ${(props) => props.theme.maxWidthMedium}px) {
     font-size: 0.9em;
+    padding: 0.4em;
   }
 `
 
@@ -79,7 +83,6 @@ const Pagination: React.FC = () => {
       <PaginationButton disabled={!prevActive} onClick={loadPrev}>
         {t('common:previous')}
       </PaginationButton>
-      {!nextActive ? <Warning>{t('common:noItems')}</Warning> : ''}
       <PaginationButton disabled={!nextActive} onClick={loadNext}>
         {t('common:next')}
       </PaginationButton>

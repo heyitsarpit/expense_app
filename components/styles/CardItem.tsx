@@ -126,7 +126,7 @@ export const CardItem = styled.div`
     ) => props.theme.maxWidthSmall}px) {
     .grid-container {
       .Icon {
-        --size: 1.2em;
+        --size: 1.5em;
         width: var(--size);
         height: var(--size);
         font-size: 1em;
@@ -142,7 +142,7 @@ export const CardItem = styled.div`
       }
       .Email {
         a {
-          font-size: 0.6em;
+          font-size: 0.7em;
         }
       }
       .Date {
