@@ -12,7 +12,6 @@ import { DarkTheme } from './styles/Theme'
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
   margin: 1.3em;
   padding: 1em;
   border: 1.5em solid ${(props) => props.theme.borderColor};

@@ -1,7 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
-import styled from 'styled-components'
 
-import { getMonthYear } from '../lib/resolveDate'
+import findExpenses from '../lib/findExpenses'
 import { useTranslation } from '../lib/translate'
 import useSelector from '../lib/useSelector'
 import SearchBox from './styles/SearchBox'
@@ -21,31 +20,9 @@ const Search: React.FC<SearchProps> = ({ setSearching, setFoundExpenses }) => {
   const { expenses } = useSelector((state) => state.expenses)
   const [searchValue, setSearchValue] = useState('')
 
-  const findExpenses = (searchTerms: string[]) =>
-    expenses.filter((expense) => {
-      const merchant = expense.merchant.toLowerCase(),
-        first = expense.user.first.toLowerCase(),
-        last = expense.user.last.toLowerCase(),
-        [amount] = expense.amount.value.split('.'),
-        monthYear = getMonthYear(expense.date, language).toLocaleLowerCase(),
-        [month, year] = monthYear.split(' ')
-
-      const result = searchTerms.filter(
-        (term) =>
-          first.includes(term) ||
-          last.includes(term) ||
-          merchant.includes(term) ||
-          year === term ||
-          month.includes(term) ||
-          amount.includes(term)
-      )
-
-      return Array.isArray(result) && result.length
-    })
-
   const doSearch = () => {
     if (searchValue) {
-      const foundExpenses = findExpenses(searchValue.split(' '))
+      const foundExpenses = findExpenses(searchValue.split(' '), expenses, language)
       setFoundExpenses(foundExpenses)
       setSearching(true)
     } else {
