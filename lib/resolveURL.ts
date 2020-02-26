@@ -5,7 +5,8 @@
  * /expenses/:id/receipts
  */
 
-const baseURL = process.env.API_URL
+const baseURL =
+  process.env.NODE_ENV === 'development' ? process.env.API_URL_DEV : process.env.API_URL_PROD
 
 export const getURL = (limit = 10, offset = 0) =>
   `${baseURL}/expenses?limit=${limit}&offset=${offset}`

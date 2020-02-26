@@ -15,6 +15,7 @@ const Wrapper = styled.div`
   margin: 1.3em;
   padding: 1em;
   border: 1.5em solid ${(props) => props.theme.borderColor};
+  min-height: 100vh;
 `
 
 const Container = styled.div`
