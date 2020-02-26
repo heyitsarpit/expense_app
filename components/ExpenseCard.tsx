@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 
 import getCurrencySymbol from '../lib/getCurrencySymbol'
-import {resolveDate} from '../lib/resolveDate'
+import { resolveDate } from '../lib/resolveDate'
 import useSelector from '../lib/useSelector'
 import ExpenseEdit from './ExpenseEdit'
 import { CardItem } from './styles/CardItem'

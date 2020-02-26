@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const ParentResponsive = styled.div`
   /* SMARTPHONES PORTRAIT */
@@ -13,7 +13,6 @@ const ParentResponsive = styled.div`
     margin: 0 auto;
     width: 100%;
     min-width: 90%;
-
   }
 
   /* TABLETS PORTRAIT */
@@ -30,8 +29,8 @@ const ParentResponsive = styled.div`
     min-width: 60%;
   }
 
-    /* TABLET LANDSCAPE / DESKTOP Extra Large*/
-    @media only screen and (min-width: 1024px) {
+  /* TABLET LANDSCAPE / DESKTOP Extra Large*/
+  @media only screen and (min-width: 1024px) {
     margin: 0 auto;
     width: 50%;
     min-width: 40%;

@@ -10,6 +10,7 @@
   "appTitle": "Suivi des Dépenses",
   "next": "Suivante",
   "previous": "Précédente",
-  "noItems":"Plus d'articles à charger !!!!"
+  "noItems": "Plus d'articles à charger !!!!",
+"searchError": "Aucun résultat trouvé!"
 
 }

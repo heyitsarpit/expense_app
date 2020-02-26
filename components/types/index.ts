@@ -1,4 +1,4 @@
-//The below comment block is to enable better preview in VSCode 
+//The below comment block is to enable better preview in VSCode
 /**
  * ```js
  * id: string

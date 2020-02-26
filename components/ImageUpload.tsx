@@ -34,7 +34,7 @@ const ImageInputWrapper = styled.div`
 const ImageUpload: React.FC<EditProps> = ({ addImage, setActive }) => {
   const onFileChange = ({ currentTarget: { files } }: ChangeEvent<HTMLInputElement>) => {
     setActive(true)
- 
+
     const file = files[0]
 
     const reader = new FileReader()

@@ -10,5 +10,6 @@
   "appTitle": "Expense App",
   "next": "Next",
   "previous": "Previous",
-  "noItems":"No more items to load !!!!"
+  "noItems": "No more items to load !!!!",
+  "searchError": "No results found!"
 }

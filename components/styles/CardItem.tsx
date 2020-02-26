@@ -82,7 +82,6 @@ export const CardItem = styled.div`
     .Name {
       grid-area: Name;
       font-family: ${(props) => props.theme.fontMain};
-      font-weight: bold;
       font-size: 1.2em;
     }
 
@@ -99,7 +98,6 @@ export const CardItem = styled.div`
       grid-area: Value;
       justify-self: end;
       font-family: ${(props) => props.theme.fontMain};
-      font-weight: bold;
       font-size: 1.2em;
     }
 
@@ -129,7 +127,7 @@ export const CardItem = styled.div`
         font-size: 1.1em;
       }
       .Merchant {
-        font-size: 1.1em;
+        font-size: 1em;
       }
       .Email {
         a {

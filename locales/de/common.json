@@ -10,6 +10,7 @@
   "appTitle": "Kosten App",
   "next": "Nächster",
   "previous": "Bisherige",
-  "noItems":"Keine weiteren Artikel zum Laden !!!!"
+  "noItems": "Keine weiteren Artikel zum Laden !!!!",
+  "searchError": "Keine Ergebnisse gefunden!"
 
 }

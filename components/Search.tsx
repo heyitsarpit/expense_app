@@ -39,24 +39,29 @@ const Search: React.FC<SearchProps> = ({ setSearching, setFoundExpenses }) => {
           month.includes(term) ||
           amount.includes(term)
       )
-      
+
       return Array.isArray(result) && result.length
     })
 
-  const onQueryChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
+  const doSearch = () => {
+    if (searchValue) {
+      const foundExpenses = findExpenses(searchValue.split(' '))
+      setFoundExpenses(foundExpenses)
+      setSearching(true)
+    } else {
+      setFoundExpenses([])
+      setSearching(false)
+    }
+  }
+
+  const onQueryChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
     setSearchValue(value.toLowerCase())
+    doSearch()
+  }
 
   const onQuerySearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    if (searchValue) {
-      const foundExpenses = findExpenses(searchValue.split(' '))
-      if (Array.isArray(foundExpenses) && foundExpenses.length) {
-        setFoundExpenses(foundExpenses)
-        setSearching(true)
-      }
-    } else {
-      setSearching(false)
-    }
+    doSearch()
   }
 
   const t = useTranslation()
