@@ -31,9 +31,8 @@ const Warning = styled.div`
     ) => props.theme.maxWidthSmall}px) {
     font-size: 0.8em;
   }
-  @media only screen and (min-width: ${(props) => props.theme.minWidthMedium}px) and (max-width: ${(
-      props
-    ) => props.theme.maxWidthMedium}px) {
+  @media only screen and (min-width: ${(props) =>
+      props.theme.minWidthMedium}px) and (max-width: ${(props) => props.theme.maxWidthMedium}px) {
     font-size: 0.9em;
   }
 `

@@ -11,9 +11,8 @@ const ParentResponsive = styled.div`
   }
 
   /* SMARTPHONES LANDSCAPE */
-  @media only screen and (min-width: ${(props) => props.theme.minWidthMedium}px) and (max-width: ${(
-      props
-    ) => props.theme.maxWidthMedium}px) {
+  @media only screen and (min-width: ${(props) =>
+      props.theme.minWidthMedium}px) and (max-width: ${(props) => props.theme.maxWidthMedium}px) {
     margin: 0 auto;
     width: 100%;
     min-width: 90%;

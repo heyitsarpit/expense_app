@@ -15,9 +15,8 @@ const IMG = styled.img`
     ) => props.theme.maxWidthSmall}px) {
     width: 30px;
   }
-  @media only screen and (min-width: ${(props) => props.theme.minWidthMedium}px) and (max-width: ${(
-      props
-    ) => props.theme.maxWidthMedium}px) {
+  @media only screen and (min-width: ${(props) =>
+      props.theme.minWidthMedium}px) and (max-width: ${(props) => props.theme.maxWidthMedium}px) {
     width: 35px;
   }
 `

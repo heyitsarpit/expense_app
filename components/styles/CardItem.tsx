@@ -152,9 +152,8 @@ export const CardItem = styled.div`
   }
 
   /* SMARTPHONES LANDSCAPE */
-  @media only screen and (min-width: ${(props) => props.theme.minWidthMedium}px) and (max-width: ${(
-      props
-    ) => props.theme.maxWidthMedium}px) {
+  @media only screen and (min-width: ${(props) =>
+      props.theme.minWidthMedium}px) and (max-width: ${(props) => props.theme.maxWidthMedium}px) {
     .grid-container {
       .Icon {
         --size: 1.5em;

@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 
 import findExpenses from '../lib/findExpenses'
 import { useTranslation } from '../lib/translate'
@@ -18,11 +18,17 @@ const searchImgPath = '/images/search.svg'
 const Search: React.FC<SearchProps> = ({ setSearching, setFoundExpenses }) => {
   const language = useSelector((state) => state.view.language)
   const { expenses } = useSelector((state) => state.expenses)
+
   const [searchValue, setSearchValue] = useState('')
+
+  useEffect(() => {
+    doSearch()
+  }, [searchValue])
 
   const doSearch = () => {
     if (searchValue) {
-      const foundExpenses = findExpenses(searchValue.split(' '), expenses, language)
+      const searchTerms = searchValue.match(/\b(\w+)\b/g)
+      const foundExpenses = findExpenses(searchTerms, expenses, language)
       setFoundExpenses(foundExpenses)
       setSearching(true)
     } else {
@@ -33,7 +39,6 @@ const Search: React.FC<SearchProps> = ({ setSearching, setFoundExpenses }) => {
 
   const onQueryChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
     setSearchValue(value.toLowerCase())
-    doSearch()
   }
 
   const onQuerySearch = (event: FormEvent<HTMLFormElement>) => {
