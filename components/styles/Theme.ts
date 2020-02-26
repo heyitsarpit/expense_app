@@ -8,12 +8,20 @@ export interface Theme {
   colorUnfocused: string
   borderColor: string
   textPrimaryDimmed: string
+  minWidthSmall: number
+  maxWidthSmall: number
+  minWidthMedium: number
+  maxWidthMedium: number
 }
 
 const theme = {
   padding: '10',
   fontMain: 'Fira Mono',
-  fontSecondary: 'Playfair Display'
+  fontSecondary: 'Playfair Display',
+  minWidthSmall: 320,
+  maxWidthSmall: 479,
+  minWidthMedium: 480,
+  maxWidthMedium: 767
 }
 
 export const LightTheme: Theme = {

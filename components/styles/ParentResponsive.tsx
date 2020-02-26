@@ -2,14 +2,18 @@ import styled from 'styled-components'
 
 const ParentResponsive = styled.div`
   /* SMARTPHONES PORTRAIT */
-  @media only screen and (min-width: 320px) and (max-width: 479px) {
+  @media only screen and (min-width: ${(props) => props.theme.minWidthSmall}px) and (max-width: ${(
+      props
+    ) => props.theme.maxWidthSmall}px) {
     margin: 0 auto;
     width: 100%;
     min-width: 90%;
   }
 
   /* SMARTPHONES LANDSCAPE */
-  @media only screen and (min-width: 480px) and (max-width: 767px) {
+  @media only screen and (min-width: ${(props) => props.theme.minWidthMedium}px) and (max-width: ${(
+      props
+    ) => props.theme.maxWidthMedium}px) {
     margin: 0 auto;
     width: 100%;
     min-width: 90%;

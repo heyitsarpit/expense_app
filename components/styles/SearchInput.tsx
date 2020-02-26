@@ -5,7 +5,7 @@ const SearchInput = styled.input`
   border: none;
   width: 100%;
   height: 2em;
-  font-size: 100%;
+  font-size: 1em;
   font-family: ${(props) => props.theme.fontMain};
   color: ${(props) => props.theme.textPrimary};
   ::placeholder {
@@ -13,6 +13,16 @@ const SearchInput = styled.input`
   }
   :focus {
     outline: none;
+  }
+  @media only screen and (min-width: ${(props) => props.theme.minWidthSmall}px) and (max-width: ${(
+      props
+    ) => props.theme.maxWidthSmall}px) {
+    font-size: 0.8em;
+  }
+  @media only screen and (min-width: ${(props) => props.theme.minWidthMedium}px) and (max-width: ${(
+      props
+    ) => props.theme.maxWidthMedium}px) {
+    font-size: 0.9em;
   }
 `
 

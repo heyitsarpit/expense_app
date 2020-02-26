@@ -25,6 +25,18 @@ const PaginationButton = styled.button`
     outline: none;
   }
 `
+const Warning = styled.div`
+  @media only screen and (min-width: ${(props) => props.theme.minWidthSmall}px) and (max-width: ${(
+      props
+    ) => props.theme.maxWidthSmall}px) {
+    font-size: 0.8em;
+  }
+  @media only screen and (min-width: ${(props) => props.theme.minWidthMedium}px) and (max-width: ${(
+      props
+    ) => props.theme.maxWidthMedium}px) {
+    font-size: 0.9em;
+  }
+`
 
 const PaginationButtonWrapper = styled.div`
   display: flex;
@@ -68,7 +80,7 @@ const Pagination: React.FC = () => {
       <PaginationButton disabled={!prevActive} onClick={loadPrev}>
         {t('common:previous')}
       </PaginationButton>
-      {!nextActive ? t('common:noItems') : ''}
+      {!nextActive ? <Warning>{t('common:noItems')}</Warning> : ''}
       <PaginationButton disabled={!nextActive} onClick={loadNext}>
         {t('common:next')}
       </PaginationButton>

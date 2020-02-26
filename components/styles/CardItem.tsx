@@ -121,18 +121,63 @@ export const CardItem = styled.div`
   }
 
   /* SMARTPHONES PORTRAIT */
-  @media only screen and (min-width: 320px) and (max-width: 479px) {
+  @media only screen and (min-width: ${(props) => props.theme.minWidthSmall}px) and (max-width: ${(
+      props
+    ) => props.theme.maxWidthSmall}px) {
     .grid-container {
+      .Icon {
+        --size: 1.2em;
+        width: var(--size);
+        height: var(--size);
+        font-size: 1em;
+      }
+      .Name {
+        font-size: 1em;
+      }
+      .Value {
+        font-size: 1em;
+      }
+      .Merchant {
+        font-size: 0.8em;
+      }
+      .Email {
+        a {
+          font-size: 0.6em;
+        }
+      }
+      .Date {
+        font-size: 0.8em;
+      }
+    }
+  }
+
+  /* SMARTPHONES LANDSCAPE */
+  @media only screen and (min-width: ${(props) => props.theme.minWidthMedium}px) and (max-width: ${(
+      props
+    ) => props.theme.maxWidthMedium}px) {
+    .grid-container {
+      .Icon {
+        --size: 1.5em;
+        width: var(--size);
+        height: var(--size);
+        font-size: 1.2em;
+      }
       .Name {
         font-size: 1.1em;
       }
+      .Value {
+        font-size: 1.1em;
+      }
       .Merchant {
-        font-size: 1em;
+        font-size: 0 75em;
       }
       .Email {
         a {
           font-size: 0.7em;
         }
+      }
+      .Date {
+        font-size: 0.75em;
       }
     }
   }

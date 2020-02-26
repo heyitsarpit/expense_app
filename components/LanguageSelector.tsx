@@ -10,6 +10,17 @@ const LanguageWrapper = styled.span`
   font-weight: 200;
   font-stretch: expanded;
   align-self: center;
+  font-size: 1em;
+  @media only screen and (min-width: ${(props) => props.theme.minWidthSmall}px) and (max-width: ${(
+      props
+    ) => props.theme.maxWidthSmall}px) {
+    font-size: 0.8em;
+  }
+  @media only screen and (min-width: ${(props) => props.theme.minWidthMedium}px) and (max-width: ${(
+      props
+    ) => props.theme.maxWidthMedium}px) {
+    font-size: 0.9em;
+  }
 `
 
 const Language = styled.button`
