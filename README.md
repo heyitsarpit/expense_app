@@ -1,6 +1,7 @@
 # Pleo Frontend challenge
 
 Created a single page app that shows expenses fetched from a given api.
+##### View here - https://pleo-expense-arpit.now.sh/
 
 #### Features
 
@@ -11,14 +12,17 @@ Created a single page app that shows expenses fetched from a given api.
 - View preview of said image
 - Localization - Supports languages English, French and German
 - Dark mode
-- Responsive design
+- Responsive design(somewhat)
 
 #### Comments
 
-- Deployed the app with now, but the api is deployed on AWS which is `http` and browsers just block it as not secure, I decided to submit before its live.
-- I Used nextjs but the app isn't server rendered, I currently just export it as a static website. Can be deployed on github pages, netlify.
-- Used redux and typescript as they were a requirement of this test and I had learned them very recently.
+
+- I Used `Next JS` but the app isn't server rendered, I currently just export it as a static website. Can be deployed on github pages, netlify.
 - Wanted to use localization libraries like `react-i18next` and `next-i18next` but I had trouble as they would break the app for some reason I couldn't figure out. So I wrote my own functions that mimic their API and way of use, ie the `useTranslation()` method in `./lib/translate.ts`
+- Used redux and typescript as they were a requirement of this test and I had learned them very recently.
+- Deployed the app with [now](https://zeit.co), but the api was deployed on AWS which was `http` and browsers just block it as not secure, shifted to heroku since.
+
+
 
 ### Running the project
 
