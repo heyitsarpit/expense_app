@@ -2,18 +2,11 @@ import styled from 'styled-components'
 
 export const CardItem = styled.div`
   cursor: pointer;
-  max-width: 40%;
-  min-width: 30%;
   margin: 0 auto;
   border: transparent;
   border-bottom: solid 1px ${(props) => props.theme.colorUnfocused};
   :hover {
     border-color: ${(props) => props.theme.textPrimary};
-  }
-
-  @media only screen and (max-width: 1052px) {
-    max-width: 80%;
-    min-width: 40%;
   }
 
   .EditBox {
@@ -72,6 +65,18 @@ export const CardItem = styled.div`
       width: 50px;
       justify-self: right;
       margin-right: 1em;
+
+      --size: 2em;
+      width: var(--size);
+      height: var(--size);
+
+      background: ${(props) => props.theme.textPrimaryDimmed};
+      color: ${(props) => props.theme.bgColor};
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5em;
     }
 
     .Name {
@@ -83,9 +88,11 @@ export const CardItem = styled.div`
 
     .Email {
       grid-area: Email;
-      font-size: 0.9em;
-      font-family: ${(props) => props.theme.fontSecondary};
-      color: ${(props) => props.theme.textSecondary};
+      a {
+        font-size: 0.9em;
+        font-family: ${(props) => props.theme.fontSecondary};
+        color: ${(props) => props.theme.textSecondary};
+      }
     }
 
     .Value {
@@ -112,6 +119,23 @@ export const CardItem = styled.div`
       margin: 0.1em;
       font-family: ${(props) => props.theme.fontMain};
       color: ${(props) => props.theme.textSecondary};
+    }
+  }
+
+  /* SMARTPHONES PORTRAIT */
+  @media only screen and (min-width: 320px) and (max-width: 479px) {
+    .grid-container {
+      .Name {
+        font-size: 1.1em;
+      }
+      .Merchant {
+        font-size: 1.1em;
+      }
+      .Email {
+        a {
+          font-size: 0.7em;
+        }
+      }
     }
   }
 `

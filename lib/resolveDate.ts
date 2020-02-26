@@ -1,7 +1,9 @@
 import { format } from 'date-fns'
 import { de, enGB, fr } from 'date-fns/locale'
 
-const resolveDate = (date: string, language: 'en' | 'fr' | 'de') => {
+type Locale = 'en' | 'fr' | 'de'
+
+const getOptions = (language: Locale) => {
   let options = { locale: enGB }
   switch (language) {
     case 'en':
@@ -16,8 +18,11 @@ const resolveDate = (date: string, language: 'en' | 'fr' | 'de') => {
     default:
       break
   }
-
-  return format(new Date(date), 'd LLLL, yyyy', options)
+  return options
 }
 
-export default resolveDate
+export const resolveDate = (date: string, language: Locale) =>
+  format(new Date(date), 'd LLLL, yyyy', getOptions(language))
+
+export const getMonthYear = (date: string, language: Locale) =>
+  format(new Date(date), 'LLLL yyyy', getOptions(language))

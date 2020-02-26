@@ -4,9 +4,12 @@
   "commentPlaceHolder": "Fügen Sie hier Ihren Kommentar hinzu ....",
   "save": "Änderungen speichern",
   "deleteImage": "Lösche Bild",
+  "uploadImage": "Bild hochladen",
   "footerCredits": "Hergestellt mit ❤ von",
   "headingTitle": "Pleo Kosten Tracker",
   "appTitle": "Kosten App",
   "next": "Nächster",
-  "previous": "Bisherige"
+  "previous": "Bisherige",
+  "noItems":"Keine weiteren Artikel zum Laden !!!!"
+
 }

@@ -11,7 +11,7 @@ interface ImageFieldProps {
 
 const ImageField: React.FC<ImageFieldProps> = ({ image, addImage, deleteImage, setActive }) => {
   return image ? (
-    <ImagePreview image={image} deleteImage={deleteImage} />
+    <ImagePreview image={image} setActive={setActive} deleteImage={deleteImage} />
   ) : (
     <ImageUpload addImage={addImage} setActive={setActive} />
   )

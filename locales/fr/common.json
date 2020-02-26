@@ -4,9 +4,12 @@
   "commentPlaceHolder": "Ajoutez votre commentaire ici ....",
   "save": "Sauvegarder",
   "deleteImage": "Supprimer l'image",
+  "uploadImage": "télécharger",
   "footerCredits": "Fabriqué avec ❤ par ",
   "headingTitle": "Pleo Suivi des Dépenses",
   "appTitle": "Suivi des Dépenses",
   "next": "Suivante",
-  "previous": "Précédente"
+  "previous": "Précédente",
+  "noItems":"Plus d'articles à charger !!!!"
+
 }

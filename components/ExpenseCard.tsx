@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 
 import getCurrencySymbol from '../lib/getCurrencySymbol'
-import resolveDate from '../lib/resolveDate'
+import {resolveDate} from '../lib/resolveDate'
 import useSelector from '../lib/useSelector'
 import ExpenseEdit from './ExpenseEdit'
 import { CardItem } from './styles/CardItem'
@@ -26,26 +26,30 @@ const ExpenseCard: React.FC<Expense> = ({
   const resolvedDate = resolveDate(date, language)
 
   return (
-      <CardItem>
-        <div className="grid-container" onClick={toggleView}>
-          <div className="Date">{resolvedDate}</div>
-          <img className="Icon" src={iconPath}></img>
-          <div className="Name">
-            {first} {last}
-          </div>
-          <a href={`mailto:${email}`} className="Email" rel="noopener noreferrer" target="_blank">
+    <CardItem>
+      <div className="grid-container" onClick={toggleView}>
+        <div className="Date">{resolvedDate}</div>
+        {/* <img className="Icon" src={iconPath}></img> */}
+        <div className="Icon">{first[0]}</div>
+
+        <div className="Name">
+          {first} {last}
+        </div>
+        <div className="Email">
+          <a href={`mailto:${email}`} rel="noopener noreferrer" target="_blank">
             {email}
           </a>
-          <div className="Value">
-            {getCurrencySymbol(currency)}
-            {value}
-          </div>
-          <div className="Merchant">{merchant}</div>
         </div>
-        <div className="EditBox">
-          {isActive && <ExpenseEdit id={id} storedComment={comment} />}
+        <div className="Value">
+          {getCurrencySymbol(currency)}
+          {value}
         </div>
-      </CardItem>
+        <div className="Merchant">{merchant}</div>
+      </div>
+      <div className="EditBox">
+        {isActive && <ExpenseEdit id={id} toggleActive={toggleActive} storedComment={comment} />}
+      </div>
+    </CardItem>
   )
 }
 

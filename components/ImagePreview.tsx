@@ -5,6 +5,7 @@ import { useTranslation } from '../lib/translate'
 interface ImagePreviewProps {
   image: string
   deleteImage: () => void
+  setActive: (bool: boolean) => void
 }
 
 const PreviewWrapper = styled.div`
@@ -33,15 +34,19 @@ const DeleteImage = styled.button`
   }
 `
 
-const ImagePreview: React.FC<ImagePreviewProps> = ({ image, deleteImage }) => {
+const ImagePreview: React.FC<ImagePreviewProps> = ({ image, deleteImage, setActive }) => {
   const t = useTranslation()
+  const onDelete = () => {
+    setActive(false)
+    deleteImage()
+  }
   return (
     <PreviewWrapper>
       <img src={image} alt="Preview" />
       {image && (
         <div>
           {/* <button>View</button> */}
-          <DeleteImage onClick={() => deleteImage()}>{t('common:deleteImage')}</DeleteImage>
+          <DeleteImage onClick={onDelete}>{t('common:deleteImage')}</DeleteImage>
         </div>
       )}
     </PreviewWrapper>

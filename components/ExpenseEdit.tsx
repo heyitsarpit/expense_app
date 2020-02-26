@@ -9,6 +9,7 @@ import ImageField from './ImageField'
 interface EditProps {
   id: string
   storedComment: string
+  toggleActive: (bool: boolean) => void
 }
 
 const CommentInput = styled.textarea`
@@ -26,7 +27,7 @@ const CommentInput = styled.textarea`
   }
 `
 
-const ExpenseEdit: React.FC<EditProps> = ({ id, storedComment }) => {
+const ExpenseEdit: React.FC<EditProps> = ({ id, storedComment, toggleActive }) => {
   const [comment, setComment] = useState(storedComment)
   const [image, changeImage] = useState('')
   const [active, setActive] = useState(false)
@@ -38,6 +39,7 @@ const ExpenseEdit: React.FC<EditProps> = ({ id, storedComment }) => {
   const onFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setActive(false)
+    toggleActive(false)
     if (comment) {
       postComment(id, comment)(dispatch)
     }

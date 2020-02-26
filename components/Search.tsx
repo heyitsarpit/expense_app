@@ -1,8 +1,10 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import styled from 'styled-components'
 
+import { getMonthYear } from '../lib/resolveDate'
 import { useTranslation } from '../lib/translate'
 import useSelector from '../lib/useSelector'
+import SearchBox from './styles/SearchBox'
 import SearchButton from './styles/SearchButton'
 import SearchInput from './styles/SearchInput'
 import { Expense } from './types'
@@ -14,34 +16,30 @@ interface SearchProps {
 
 const searchImgPath = '/images/search.svg'
 
-const SearchBox = styled.form`
-  display: flex;
-  flex-direction: row;
-  padding: 0.5em;
-  border-bottom: solid 1px ${(props) => props.theme.colorUnfocused};
-  opacity: 0.8;
-  width: 40%;
-  margin: 0 auto;
-  :hover {
-    outline: none;
-    opacity: 1;
-    border-color: ${(props) => props.theme.textPrimary};
-  }
-`
-
 const Search: React.FC<SearchProps> = ({ setSearching, setFoundExpenses }) => {
-  const [searchValue, setSearchValue] = useState('')
+  const language = useSelector((state) => state.view.language)
   const { expenses } = useSelector((state) => state.expenses)
+  const [searchValue, setSearchValue] = useState('')
 
   const findExpenses = (searchTerms: string[]) =>
     expenses.filter((expense) => {
       const merchant = expense.merchant.toLowerCase(),
         first = expense.user.first.toLowerCase(),
-        last = expense.user.last.toLowerCase()
+        last = expense.user.last.toLowerCase(),
+        [amount] = expense.amount.value.split('.'),
+        monthYear = getMonthYear(expense.date, language).toLocaleLowerCase(),
+        [month, year] = monthYear.split(' ')
 
       const result = searchTerms.filter(
-        (term) => first.includes(term) || last.includes(term) || merchant.includes(term)
+        (term) =>
+          first.includes(term) ||
+          last.includes(term) ||
+          merchant.includes(term) ||
+          year === term ||
+          month.includes(term) ||
+          amount.includes(term)
       )
+      
       return Array.isArray(result) && result.length
     })
 
@@ -62,7 +60,6 @@ const Search: React.FC<SearchProps> = ({ setSearching, setFoundExpenses }) => {
   }
 
   const t = useTranslation()
-
   return (
     <SearchBox onSubmit={onQuerySearch}>
       <SearchInput

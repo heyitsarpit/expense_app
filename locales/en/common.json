@@ -3,10 +3,12 @@
   "searchPlaceholder": "Search for users or merchants....",
   "commentPlaceHolder": "Add your comment here ....",
   "save": "Save Changes",
+  "uploadImage": "Upload Image",
   "deleteImage": "Delete Image",
   "footerCredits": "Made with ❤ by ",
   "headingTitle": "Pleo Expense Tracker",
   "appTitle": "Expense App",
   "next": "Next",
-  "previous": "Previous"
+  "previous": "Previous",
+  "noItems":"No more items to load !!!!"
 }

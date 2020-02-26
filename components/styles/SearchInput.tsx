@@ -5,7 +5,7 @@ const SearchInput = styled.input`
   border: none;
   width: 100%;
   height: 2em;
-  font-size: 1.5em;
+  font-size: 100%;
   font-family: ${(props) => props.theme.fontMain};
   color: ${(props) => props.theme.textPrimary};
   ::placeholder {

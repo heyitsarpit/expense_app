@@ -1,12 +1,12 @@
 import { ChangeEvent } from 'react'
 import styled from 'styled-components'
 
+import { useTranslation } from '../lib/translate'
+
 interface EditProps {
   addImage: (image: string) => void
   setActive: (bool: boolean) => void
 }
-
-const uploadIconPath = '/images/upload.svg'
 
 const ImageInputWrapper = styled.div`
   label {
@@ -34,18 +34,20 @@ const ImageInputWrapper = styled.div`
 const ImageUpload: React.FC<EditProps> = ({ addImage, setActive }) => {
   const onFileChange = ({ currentTarget: { files } }: ChangeEvent<HTMLInputElement>) => {
     setActive(true)
-
+ 
     const file = files[0]
+
     const reader = new FileReader()
     reader.readAsDataURL(file)
     reader.onload = () => addImage(reader.result as string)
     reader.onerror = (error) => console.log(error)
   }
 
+  const t = useTranslation()
   return (
     <ImageInputWrapper>
       <label htmlFor="file-input">
-        <span>Upload Image</span>
+        <span>{t('common:uploadImage')}</span>
       </label>
       <input id="file-input" type="file" onChange={onFileChange} name="receipt" accept="image/*" />
     </ImageInputWrapper>
