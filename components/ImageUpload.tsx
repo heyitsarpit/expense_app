@@ -1,12 +1,8 @@
-import { ChangeEvent } from 'react'
+import { ChangeEvent, useContext } from 'react'
 import styled from 'styled-components'
 
 import { useTranslation } from '../lib/translate'
-
-interface EditProps {
-  addImage: (image: string) => void
-  setActive: (bool: boolean) => void
-}
+import { ImageFieldContext } from './ImageFieldContext'
 
 const ImageInputWrapper = styled.div`
   label {
@@ -43,9 +39,11 @@ const ImageInputWrapper = styled.div`
   }
 `
 
-const ImageUpload: React.FC<EditProps> = ({ addImage, setActive }) => {
+const ImageUpload: React.FC = () => {
+  const { setImageVisible, addImage } = useContext(ImageFieldContext)
+
   const onFileChange = ({ currentTarget: { files } }: ChangeEvent<HTMLInputElement>) => {
-    setActive(true)
+    setImageVisible(true)
 
     const file = files[0]
 

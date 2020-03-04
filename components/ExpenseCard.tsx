@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import styled from 'styled-components'
 
 import getCurrencySymbol from '../lib/getCurrencySymbol'
 import { resolveDate } from '../lib/resolveDate'
@@ -7,8 +6,6 @@ import useSelector from '../lib/useSelector'
 import ExpenseEdit from './ExpenseEdit'
 import { CardItem } from './styles/CardItem'
 import { Expense } from './types'
-
-const iconPath = '/images/person.svg'
 
 const ExpenseCard: React.FC<Expense> = ({
   id,
@@ -18,10 +15,10 @@ const ExpenseCard: React.FC<Expense> = ({
   amount: { currency, value },
   user: { first, last, email }
 }) => {
-  const [isActive, toggleActive] = useState(false)
+  const [editing, toggleEditing] = useState(false)
   const language = useSelector((state) => state.view.language)
 
-  const toggleView = () => toggleActive(!isActive)
+  const toggleView = () => toggleEditing(!editing)
 
   const resolvedDate = resolveDate(date, language)
 
@@ -47,7 +44,7 @@ const ExpenseCard: React.FC<Expense> = ({
         <div className="Merchant">{merchant}</div>
       </div>
       <div className="EditBox">
-        {isActive && <ExpenseEdit id={id} toggleActive={toggleActive} storedComment={comment} />}
+        {editing && <ExpenseEdit id={id} toggleEditing={toggleEditing} storedComment={comment} />}
       </div>
     </CardItem>
   )

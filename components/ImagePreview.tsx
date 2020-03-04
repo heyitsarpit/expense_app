@@ -1,12 +1,8 @@
+import { useContext } from 'react'
 import styled from 'styled-components'
 
 import { useTranslation } from '../lib/translate'
-
-interface ImagePreviewProps {
-  image: string
-  deleteImage: () => void
-  setActive: (bool: boolean) => void
-}
+import { ImageFieldContext } from './ImageFieldContext'
 
 const PreviewWrapper = styled.div`
   img {
@@ -47,18 +43,20 @@ const DeleteImage = styled.button`
   }
 `
 
-const ImagePreview: React.FC<ImagePreviewProps> = ({ image, deleteImage, setActive }) => {
-  const t = useTranslation()
+const ImagePreview: React.FC = () => {
+  const { setImageVisible, image, deleteImage } = useContext(ImageFieldContext)
+
   const onDelete = () => {
-    setActive(false)
+    setImageVisible(false)
     deleteImage()
   }
+
+  const t = useTranslation()
   return (
     <PreviewWrapper>
       <img src={image} alt="Preview" />
       {image && (
         <div>
-          {/* <button>View</button> */}
           <DeleteImage onClick={onDelete}>{t('common:deleteImage')}</DeleteImage>
         </div>
       )}

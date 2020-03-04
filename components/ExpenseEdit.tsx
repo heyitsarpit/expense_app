@@ -1,15 +1,17 @@
-import { ChangeEvent, FormEvent, useState } from 'react'
+import React, { ChangeEvent, FormEvent, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
 import { useTranslation } from '../lib/translate'
 import { postComment, postReceipt } from '../redux-store'
-import ImageField from './ImageField'
+import { ImageFieldContext } from './ImageFieldContext'
+import ImagePreview from './ImagePreview'
+import ImageUpload from './ImageUpload'
 
 interface EditProps {
   id: string
   storedComment: string
-  toggleActive: (bool: boolean) => void
+  toggleEditing: (bool: boolean) => void
 }
 
 const CommentInput = styled.textarea`
@@ -27,10 +29,10 @@ const CommentInput = styled.textarea`
   }
 `
 
-const ExpenseEdit: React.FC<EditProps> = ({ id, storedComment, toggleActive }) => {
+const ExpenseEdit: React.FC<EditProps> = ({ id, storedComment, toggleEditing }) => {
   const [comment, setComment] = useState(storedComment)
   const [image, changeImage] = useState('')
-  const [active, setActive] = useState(false)
+  const [imageVisible, setImageVisible] = useState(false)
 
   const dispatch = useDispatch()
   const addImage = (image: string) => changeImage(image)
@@ -38,8 +40,8 @@ const ExpenseEdit: React.FC<EditProps> = ({ id, storedComment, toggleActive }) =
 
   const onFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    setActive(false)
-    toggleActive(false)
+    setImageVisible(false)
+    toggleEditing(false)
     if (comment) {
       postComment(id, comment)(dispatch)
     }
@@ -50,9 +52,9 @@ const ExpenseEdit: React.FC<EditProps> = ({ id, storedComment, toggleActive }) =
 
   const onTextChange = ({ currentTarget: { value } }: ChangeEvent<HTMLTextAreaElement>) => {
     setComment(value)
-    setActive(true)
+    setImageVisible(true)
     if (!value) {
-      setActive(false)
+      setImageVisible(false)
     }
   }
 
@@ -66,15 +68,17 @@ const ExpenseEdit: React.FC<EditProps> = ({ id, storedComment, toggleActive }) =
         placeholder={t('common:commentPlaceHolder')}
         autoComplete="off"
       />
-      <ImageField
-        className="Image"
-        image={image}
-        addImage={addImage}
-        deleteImage={deleteImage}
-        setActive={setActive}
-      />
+      <ImageFieldContext.Provider
+        value={{
+          image: image,
+          addImage: addImage,
+          deleteImage: deleteImage,
+          setImageVisible: setImageVisible
+        }}>
+        <div className="Image">{image ? <ImagePreview /> : <ImageUpload />}</div>
+      </ImageFieldContext.Provider>
 
-      <button className="Save" type="submit" disabled={!active}>
+      <button className="Save" type="submit" disabled={!imageVisible}>
         {t('common:save')}
       </button>
     </form>
