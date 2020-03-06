@@ -1,6 +1,7 @@
-# Pleo Frontend challenge
+# Pleo Frontend Challenge
 
 Created a single page app that shows expenses fetched from a given api.
+
 ##### View here - https://pleo-expense-arpit.now.sh/
 
 #### Features
@@ -16,13 +17,10 @@ Created a single page app that shows expenses fetched from a given api.
 
 #### Comments
 
-
 - I Used `Next JS` but the app isn't server rendered, I currently just export it as a static website. Can be deployed on github pages, netlify.
 - Wanted to use localization libraries like `react-i18next` and `next-i18next` but I had trouble as they would break the app for some reason I couldn't figure out. So I wrote my own functions that mimic their API and way of use, ie the `useTranslation()` method in `./lib/translate.ts`
 - Used redux and typescript as they were a requirement of this test and I had learned them very recently.
 - Deployed the app with [now](https://zeit.co), but the api was deployed on AWS which was `http` and browsers just block it as not secure, shifted to heroku since.
-
-
 
 ### Running the project
 
@@ -96,7 +94,9 @@ npm run dev
 
 Toggle to switch between Dark and Light mode.
 
-![Dark Mode](https://media.giphy.com/media/JomAMKN2X1PCWsfLDM/giphy.gif)
+<p align="center">
+  <img width="80%" src="https://media.giphy.com/media/JomAMKN2X1PCWsfLDM/giphy.gif">
+</p>
 
 #### Searching
 
@@ -108,31 +108,41 @@ Search expenses, you can search based on
 - month of purchase
 - year of purchase
 
-![Searching](https://media.giphy.com/media/UrnJLJxpa5ud8z7dti/giphy.gif)
+<p align="center">
+  <img width="80%" src="https://media.giphy.com/media/UrnJLJxpa5ud8z7dti/giphy.gif">
+</p>
 
 #### Post Comments
 
 Post Comments, the comment box is populated wth already stored comment.
 
-![Posting Comments](https://media.giphy.com/media/SVNTHYk1z6ejoGIfsv/giphy.gif)
+<p align="center">
+  <img width="80%" src="https://media.giphy.com/media/SVNTHYk1z6ejoGIfsv/giphy.gif">
+</p>
 
 #### Post Receipt Images
 
 Post image receipt, shows a preview before upload.
 
-![Posting Images](https://media.giphy.com/media/W1lAN3itGcHGs0JnS5/giphy.gif)
+<p align="center">
+  <img width="80%" src="https://media.giphy.com/media/W1lAN3itGcHGs0JnS5/giphy.gif">
+</p>
 
 #### Load more expenses
 
 Load more expense, cycle through them by going forward or backward.
 
-![Cycle through expenses](https://media.giphy.com/media/UrhBgUjgwGIjx8r09K/giphy.gif)
+<p align="center">
+  <img width="80%" src="https://media.giphy.com/media/UrhBgUjgwGIjx8r09K/giphy.gif">
+</p>
 
 #### Responsive
 
 The app is responsive and adapts to window size change.
 
-![Responsive](https://media.giphy.com/media/KFnrNUhgLa86X1Jt9h/giphy.gif)
+<p align="center">
+  <img width="80%" src="https://media.giphy.com/media/KFnrNUhgLa86X1Jt9h/giphy.gif">
+</p>
 
 ### Credits
 
