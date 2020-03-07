@@ -52,8 +52,8 @@ const Pagination: React.FC = () => {
   const dispatch = useDispatch()
   const { limit, offset } = useSelector((state) => state.view)
   const { total } = useSelector((state) => state.expenses)
-  const [prevActive, setPrevActive] = useState(false)
-  const [nextActive, setNextActive] = useState(true)
+  const [prevActive, setPrevActive] = useState(offset > 0)
+  const [nextActive, setNextActive] = useState(offset + limit < total)
 
   const prevOffset = offset
 
