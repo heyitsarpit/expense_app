@@ -1,12 +1,12 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import styled from 'styled-components'
+import { ChangeEvent, FormEvent, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import styled from 'styled-components';
 
-import { useTranslation } from '../lib/translate'
-import { postComment, postReceipt } from '../redux-store'
-import { ImageFieldContext } from './ImageFieldContext'
-import ImagePreview from './ImagePreview'
-import ImageUpload from './ImageUpload'
+import { useTranslation } from '../lib/translate';
+import { postComment, postReceipt } from '../redux-store';
+import { ImageFieldContext } from './ImageFieldContext';
+import ImagePreview from './ImagePreview';
+import ImageUpload from './ImageUpload';
 
 interface EditProps {
   id: string
