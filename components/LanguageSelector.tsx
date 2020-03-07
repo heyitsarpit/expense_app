@@ -34,7 +34,7 @@ const Language = styled.button`
 
 const LanguageSelector: React.FC = () => {
   const dispatch = useDispatch()
-  
+
   const t = useTranslation()
   return (
     <LanguageWrapper>

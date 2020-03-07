@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 
-import useSelector from '../lib/useSelector';
-import { fetchExpenses } from '../redux-store';
-import ExpenseListWrapper from './ExpenseListWrapper';
-import Search from './Search';
-import SearchItemsList from './SearchItemsList';
-import ParentResponsive from './styles/ParentResponsive';
+import useSelector from '../lib/useSelector'
+import { fetchExpenses } from '../redux-store'
+import ExpenseListWrapper from './ExpenseListWrapper'
+import Search from './Search'
+import SearchItemsList from './SearchItemsList'
+import ParentResponsive from './styles/ParentResponsive'
 
 const AppWrapper: React.FC = () => {
   const dispatch = useDispatch()
