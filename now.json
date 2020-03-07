@@ -1,0 +1,8 @@
+{
+  "build": {
+    "env": {
+      "API_URL_DEV": "@api_url_dev",
+      "API_URL_PROD": "@api_url_prod"
+    }
+  }
+}
