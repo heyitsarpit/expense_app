@@ -1,5 +1,24 @@
 import styled from 'styled-components'
 
+export const PreviewWrapper = styled.div`
+  .preview-image {
+    width: 7em;
+    height: 7em;
+    border-radius: 1em;
+    overflow: hidden;
+    float: right;
+  }
+
+  @media only screen and (min-width: ${(props) => props.theme.minWidthSmall}px) and (max-width: ${(
+      props
+    ) => props.theme.maxWidthSmall}px) {
+    .preview-image {
+      width: 5em;
+      height: 5em;
+    }
+  }
+`
+
 export const UpdateImage = styled.button`
   width: 90%;
   background: transparent;
@@ -42,15 +61,15 @@ export const Modal = styled.div`
   display: flex;
   flex-flow: column;
 
-  img {
+  .modal-image {
     margin: auto;
     width: auto;
-    height: auto;
+    height: 95%;
     overflow: auto;
     align-self: flex-end;
   }
 
-  img {
+  .modal-image {
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
@@ -75,7 +94,7 @@ export const Modal = styled.div`
     }
   }
 
-  div {
+  .close {
     color: #fff;
     font-size: 3em;
     font-weight: bold;

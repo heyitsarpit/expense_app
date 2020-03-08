@@ -2,23 +2,13 @@ import { useState } from 'react'
 import styled from 'styled-components'
 
 import { useTranslation } from '../lib/translate'
-import { Modal, UpdateImage } from './styles/ImagePreviewStyles'
+import { Modal, PreviewWrapper, UpdateImage } from './styles/ImagePreviewStyles'
 
 interface ImagePreviewProps {
   image: string
   updateImage: () => void
   setActive: (bool: boolean) => void
 }
-
-const PreviewWrapper = styled.div`
-  img {
-    width: 7em;
-    height: 7em;
-    border-radius: 1em;
-    overflow: hidden;
-    float: right;
-  }
-`
 
 const ImagePreview: React.FC<ImagePreviewProps> = ({ image, updateImage, setActive }) => {
   const [fullScreen, setFullScreen] = useState(false)
@@ -31,7 +21,12 @@ const ImagePreview: React.FC<ImagePreviewProps> = ({ image, updateImage, setActi
   const t = useTranslation()
   return (
     <PreviewWrapper>
-      <img src={image} onClick={() => setFullScreen(true)} alt="Preview" />
+      <img
+        className="preview-image"
+        src={image}
+        onClick={() => setFullScreen(true)}
+        alt="Preview"
+      />
       {image && (
         <div>
           <UpdateImage onClick={onUpdate}>{t('common:updateImage')}</UpdateImage>
@@ -39,8 +34,10 @@ const ImagePreview: React.FC<ImagePreviewProps> = ({ image, updateImage, setActi
       )}
       {fullScreen && (
         <Modal>
-          <div onClick={() => setFullScreen(false)}>&times;</div>
-          <img src={image} />
+          <div className="close" onClick={() => setFullScreen(false)}>
+            &times;
+          </div>
+          <img className="modal-image" src={image} />
         </Modal>
       )}
     </PreviewWrapper>
