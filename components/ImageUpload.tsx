@@ -16,6 +16,7 @@ const ImageInputWrapper = styled.div`
     color: ${(props) => props.theme.textPrimary};
     font-family: ${(props) => props.theme.fontSecondary};
     padding: 0.2em;
+    font-size: 0.8em;
     margin: 1em;
     align-self: flex-end;
     border: solid 1px ${(props) => props.theme.textPrimary};

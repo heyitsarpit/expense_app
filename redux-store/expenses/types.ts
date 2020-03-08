@@ -2,6 +2,10 @@ import { useDispatch } from 'react-redux'
 
 import { ActionTypes } from './expenseActionTypes'
 
+interface Receipt {
+  url: string
+}
+
 export interface Expense {
   readonly id: string
   readonly amount: {
@@ -10,7 +14,8 @@ export interface Expense {
   }
   readonly date: string
   readonly merchant: string
-  readonly receipt: string
+  readonly visibleReceipt: string
+  readonly receipts: Receipt[]
   readonly comment: string
   readonly category: string
   readonly user: {

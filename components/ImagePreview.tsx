@@ -1,10 +1,12 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 
 import { useTranslation } from '../lib/translate'
+import { Modal, UpdateImage } from './styles/ImagePreviewStyles'
 
 interface ImagePreviewProps {
   image: string
-  deleteImage: () => void
+  updateImage: () => void
   setActive: (bool: boolean) => void
 }
 
@@ -18,49 +20,28 @@ const PreviewWrapper = styled.div`
   }
 `
 
-const DeleteImage = styled.button`
-  width: 90%;
-  background: transparent;
-  color: ${(props) => props.theme.textPrimary};
-  font-family: ${(props) => props.theme.fontSecondary};
-  padding: 0.2em;
-  margin: 1em;
-  align-self: flex-end;
-  border: solid 1px ${(props) => props.theme.textPrimary};
-  float: right;
-  border-radius: 1em;
+const ImagePreview: React.FC<ImagePreviewProps> = ({ image, updateImage, setActive }) => {
+  const [fullScreen, setFullScreen] = useState(false)
 
-  :focus {
-    outline: none;
-  }
-  /* SMARTPHONES PORTRAIT */
-  @media only screen and (min-width: ${(props) => props.theme.minWidthSmall}px) and (max-width: ${(
-      props
-    ) => props.theme.maxWidthSmall}px) {
-    font-size: 0.8em;
-  }
-
-  /* SMARTPHONES LANDSCAPE */
-  @media only screen and (min-width: ${(props) =>
-      props.theme.minWidthMedium}px) and (max-width: ${(props) => props.theme.maxWidthMedium}px) {
-    font-size: 0.9em;
-  }
-`
-
-const ImagePreview: React.FC<ImagePreviewProps> = ({ image, deleteImage, setActive }) => {
-  const t = useTranslation()
-  const onDelete = () => {
+  const onUpdate = () => {
     setActive(false)
-    deleteImage()
+    updateImage()
   }
+
+  const t = useTranslation()
   return (
     <PreviewWrapper>
-      <img src={image} alt="Preview" />
+      <img src={image} onClick={() => setFullScreen(true)} alt="Preview" />
       {image && (
         <div>
-          {/* <button>View</button> */}
-          <DeleteImage onClick={onDelete}>{t('common:deleteImage')}</DeleteImage>
+          <UpdateImage onClick={onUpdate}>{t('common:updateImage')}</UpdateImage>
         </div>
+      )}
+      {fullScreen && (
+        <Modal>
+          <div onClick={() => setFullScreen(false)}>&times;</div>
+          <img src={image} />
+        </Modal>
       )}
     </PreviewWrapper>
   )
