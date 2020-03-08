@@ -58,7 +58,7 @@ const expenseReducer = (state = defaultExpenses, action: ExpenseActions): Expens
           receipt_id === expense.id
             ? {
                 ...expense,
-                receipt: receipt
+                visibleReceipt: receipt
               }
             : expense
         )
