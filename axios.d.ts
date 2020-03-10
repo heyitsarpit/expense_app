@@ -11,4 +11,3 @@ declare module 'axios' {
     patch<T = any>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T>
   }
 }
-
