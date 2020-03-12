@@ -60,7 +60,7 @@ const Pagination: React.FC = () => {
   const loadPrev = () => {
     if (offset > 0) {
       dispatch(changeOffset(prevOffset - limit))
-      fetchExpenses(limit, prevOffset - limit)(dispatch)
+      dispatch(fetchExpenses(limit, prevOffset - limit))
       setNextActive(true)
     } else {
       setPrevActive(false)
@@ -70,7 +70,7 @@ const Pagination: React.FC = () => {
   const loadNext = () => {
     if (offset + limit < total) {
       dispatch(changeOffset(limit + offset))
-      fetchExpenses(limit, limit + offset)(dispatch)
+      dispatch(fetchExpenses(limit, limit + offset))
       setPrevActive(true)
     } else {
       setNextActive(false)

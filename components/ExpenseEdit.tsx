@@ -42,10 +42,10 @@ const ExpenseEdit: React.FC<EditProps> = ({ id, receiptSrc, storedComment, toggl
     setActive(false)
     toggleEditing(false)
     if (comment) {
-      postComment(id, comment)(dispatch)
+      dispatch(postComment(id, comment))
     }
     if (image) {
-      postReceipt(id, image)(dispatch)
+      dispatch(postReceipt(id, image))
     }
   }
 

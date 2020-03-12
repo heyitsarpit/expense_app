@@ -17,7 +17,7 @@ const AppWrapper: React.FC = () => {
   const { limit, offset } = useSelector((state) => state.view)
 
   useEffect(() => {
-    fetchExpenses(limit, offset)(dispatch)
+    dispatch(fetchExpenses(limit, offset))
   }, [])
 
   return (
