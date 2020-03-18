@@ -1,4 +1,4 @@
-import isNotEmpty from '../lib/jsUtils'
+import { isNotEmpty } from '../lib/jsUtils'
 import { Expense } from '../redux-store'
 import ExpenseList from './ExpenseList'
 import SearchError from './SearchError'

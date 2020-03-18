@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
-import { useTranslation } from '../lib/translate'
 import useSelector from '../lib/useSelector'
+import { useTranslation } from '../lib/useTranslation'
 import { changeOffset, fetchExpenses } from '../redux-store'
 
 const PaginationButton = styled.button`

@@ -1,8 +1,8 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 
 import findExpenses from '../lib/findExpenses'
-import { useTranslation } from '../lib/translate'
 import useSelector from '../lib/useSelector'
+import { useTranslation } from '../lib/useTranslation'
 import { Expense } from '../redux-store'
 import SearchBox from './styles/SearchBox'
 import SearchButton from './styles/SearchButton'
@@ -27,9 +27,9 @@ const Search: React.FC<SearchProps> = ({ setSearching, setFoundExpenses }) => {
 
   const doSearch = () => {
     if (searchValue) {
-      const searchTerms = searchValue.match(/\b(\w+)\b/g) //removes whitespace
-      const foundExpenses = findExpenses(searchTerms, expenses, language)
-      setFoundExpenses(foundExpenses)
+      //removes whitespace, notice the `!` at the end, non nullable type assertion
+      const searchTerms = searchValue.match(/\b(\w+)\b/g)!
+      setFoundExpenses(findExpenses(searchTerms, expenses, language))
       setSearching(true)
     } else {
       setFoundExpenses([])

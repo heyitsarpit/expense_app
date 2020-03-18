@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import { useTranslation } from '../lib/translate'
 import ColorThemeSelector from './ColorThemeSelector'
 import LanguageSelector from './LanguageSelector'
 
@@ -18,20 +17,10 @@ const Wrapper = styled.div`
   }
 `
 
-const Title = styled.div`
-  font-size: 1.2em;
-  font-family: ${(props) => props.theme.fontSecondary};
-  color: ${(props) => props.theme.textPrimary};
-  text-transform: uppercase;
-  align-self: center;
-`
-
 const Header: React.FC<any> = ({ setTheme }) => {
-  const t = useTranslation()
   return (
     <Wrapper>
       <ColorThemeSelector setTheme={setTheme} />
-      {/* <Title>{t('common:headingTitle')}</Title> */}
       <LanguageSelector />
     </Wrapper>
   )

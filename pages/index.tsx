@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { GetStaticProps } from 'next'
 import { createContext } from 'react'
 
 import AppWrapper from '../components/AppWrapper'
@@ -25,7 +26,7 @@ const Home: React.FC<HomeProps> = ({ expenses }) => {
 
 export default Home
 
-export const getStaticProps = async (ctx) => {
+export const getStaticProps: GetStaticProps = async (ctx) => {
   const URL = getURL(20, 0)
 
   const response = await axios.get(URL).catch((error) => console.log(error.message))

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { useTranslation } from '../lib/translate'
+import { useTranslation } from '../lib/useTranslation'
 
 const FooterWrapper = styled.div`
   display: flex;

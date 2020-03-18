@@ -1,8 +1,8 @@
 // https://stackoverflow.com/questions/28041840/convert-dataurl-to-file-using-javascript
 
-const dataURLtoBlob = (dataurl) => {
-  var arr = dataurl.split(','),
-    mime = arr[0].match(/:(.*?);/)[1],
+const dataURLtoBlob = (dataUrl: string) => {
+  var arr = dataUrl.split(','),
+    mime = arr[0].match(/:(.*?);/)![1],
     bstr = atob(arr[1]),
     n = bstr.length,
     u8arr = new Uint8Array(n)

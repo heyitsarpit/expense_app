@@ -2,7 +2,7 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
-import { useTranslation } from '../lib/translate'
+import { useTranslation } from '../lib/useTranslation'
 import { postComment, postReceipt } from '../redux-store'
 import ImageField from './ImageField'
 

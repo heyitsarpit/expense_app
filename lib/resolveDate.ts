@@ -21,8 +21,14 @@ const getOptions = (language: Locales) => {
   return options
 }
 
+/**
+ * Returns date in the format: ` "10 September, 2018" `
+ */
 export const resolveDate = (date: string, language: Locales) =>
   format(new Date(date), 'd LLLL, yyyy', getOptions(language))
 
+/**
+ * Returns date in the format: ` "September 2018" `
+ */
 export const getMonthYear = (date: string, language: Locales) =>
   format(new Date(date), 'LLLL yyyy', getOptions(language))

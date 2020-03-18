@@ -1,7 +1,7 @@
 import { ChangeEvent } from 'react'
 import styled from 'styled-components'
 
-import { useTranslation } from '../lib/translate'
+import { useTranslation } from '../lib/useTranslation'
 
 interface EditProps {
   addImage: (image: string) => void
@@ -48,12 +48,14 @@ const ImageUpload: React.FC<EditProps> = ({ addImage, setActive }) => {
   const onFileChange = ({ currentTarget: { files } }: ChangeEvent<HTMLInputElement>) => {
     setActive(true)
 
-    const file = files[0]
+    const file = files?.[0]
 
-    const reader = new FileReader()
-    reader.readAsDataURL(file)
-    reader.onload = () => addImage(reader.result as string)
-    reader.onerror = (error) => console.log(error)
+    if (file) {
+      const reader = new FileReader()
+      reader.readAsDataURL(file)
+      reader.onload = () => addImage(reader.result as string)
+      reader.onerror = (error) => console.log(error)
+    }
   }
 
   const t = useTranslation()

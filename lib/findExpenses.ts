@@ -1,5 +1,5 @@
 import { Expense, Locales } from '../redux-store'
-import isNotEmpty from './jsUtils'
+import { isNotEmpty } from './jsUtils'
 import { getMonthYear } from './resolveDate'
 
 const findExpenses = (searchTerms: string[], expenses: readonly Expense[], language: Locales) =>

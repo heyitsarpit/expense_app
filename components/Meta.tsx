@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import { useTranslation } from '../lib/translate'
+import { useTranslation } from '../lib/useTranslation'
 
 const Meta: React.FC = () => {
   const t = useTranslation()

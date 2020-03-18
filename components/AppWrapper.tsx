@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import useSelector from '../lib/useSelector'
-import { fetchExpenses } from '../redux-store'
+import { Expense, fetchExpenses } from '../redux-store'
 import ExpenseListWrapper from './ExpenseListWrapper'
 import Search from './Search'
 import SearchItemsList from './SearchItemsList'
@@ -12,7 +12,7 @@ const AppWrapper: React.FC = () => {
   const dispatch = useDispatch()
 
   const [searching, setSearching] = useState(false)
-  const [foundExpenses, setFoundExpenses] = useState([])
+  const [foundExpenses, setFoundExpenses] = useState([] as Expense[])
 
   const { limit, offset } = useSelector((state) => state.view)
 

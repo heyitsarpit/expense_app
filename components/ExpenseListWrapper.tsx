@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 
-import isNotEmpty from '../lib/jsUtils'
+import { isNotEmpty } from '../lib/jsUtils'
 import useSelector from '../lib/useSelector'
 import { StaticPropsCtx } from '../pages'
 import ExpenseList from './ExpenseList'

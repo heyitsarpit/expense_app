@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import styled from 'styled-components'
 
-import { useTranslation } from '../lib/translate'
+import { useTranslation } from '../lib/useTranslation'
 import { Modal, PreviewWrapper, UpdateImage } from './styles/ImagePreviewStyles'
 
 interface ImagePreviewProps {

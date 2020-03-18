@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
-import { useTranslation } from '../lib/translate'
+import { useTranslation } from '../lib/useTranslation'
 import { switchLanguage } from '../redux-store'
 
 const LanguageWrapper = styled.span`
