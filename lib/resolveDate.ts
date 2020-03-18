@@ -1,9 +1,9 @@
 import { format } from 'date-fns'
 import { de, enGB, fr } from 'date-fns/locale'
 
-type Locale = 'en' | 'fr' | 'de'
+import { Locales } from '../redux-store'
 
-const getOptions = (language: Locale) => {
+const getOptions = (language: Locales) => {
   let options = { locale: enGB }
   switch (language) {
     case 'en':
@@ -21,8 +21,8 @@ const getOptions = (language: Locale) => {
   return options
 }
 
-export const resolveDate = (date: string, language: Locale) =>
+export const resolveDate = (date: string, language: Locales) =>
   format(new Date(date), 'd LLLL, yyyy', getOptions(language))
 
-export const getMonthYear = (date: string, language: Locale) =>
+export const getMonthYear = (date: string, language: Locales) =>
   format(new Date(date), 'LLLL yyyy', getOptions(language))

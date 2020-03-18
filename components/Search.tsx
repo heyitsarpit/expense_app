@@ -3,10 +3,10 @@ import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import findExpenses from '../lib/findExpenses'
 import { useTranslation } from '../lib/translate'
 import useSelector from '../lib/useSelector'
+import { Expense } from '../redux-store'
 import SearchBox from './styles/SearchBox'
 import SearchButton from './styles/SearchButton'
 import SearchInput from './styles/SearchInput'
-import { Expense } from './types'
 
 interface SearchProps {
   setSearching: (bool: boolean) => void
@@ -27,7 +27,7 @@ const Search: React.FC<SearchProps> = ({ setSearching, setFoundExpenses }) => {
 
   const doSearch = () => {
     if (searchValue) {
-      const searchTerms = searchValue.match(/\b(\w+)\b/g)
+      const searchTerms = searchValue.match(/\b(\w+)\b/g) //removes whitespace
       const foundExpenses = findExpenses(searchTerms, expenses, language)
       setFoundExpenses(foundExpenses)
       setSearching(true)

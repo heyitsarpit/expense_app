@@ -4,9 +4,9 @@ import getCurrencySymbol from '../lib/getCurrencySymbol'
 import { resolveDate } from '../lib/resolveDate'
 import { receiptURL } from '../lib/resolveURL'
 import useSelector from '../lib/useSelector'
+import { Expense } from '../redux-store'
 import ExpenseEdit from './ExpenseEdit'
 import { CardItem } from './styles/CardItem'
-import { Expense } from './types'
 
 const ExpenseCard: React.FC<Expense> = ({
   id,

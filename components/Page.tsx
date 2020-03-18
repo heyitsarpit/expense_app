@@ -16,6 +16,7 @@ const Wrapper = styled.div`
   padding: 1em;
   border: 1.5em solid ${(props) => props.theme.borderColor};
   min-height: 100vh;
+
   @media only screen and (min-width: ${(props) => props.theme.minWidthSmall}px) and (max-width: ${(
       props
     ) => props.theme.maxWidthSmall}px) {

@@ -1,9 +1,8 @@
-import { Expense } from '../components/types'
+import { Expense, Locales } from '../redux-store'
+import isNotEmpty from './jsUtils'
 import { getMonthYear } from './resolveDate'
 
-type Locale = 'en' | 'fr' | 'de'
-
-const findExpenses = (searchTerms: string[], expenses: readonly Expense[], language: Locale) =>
+const findExpenses = (searchTerms: string[], expenses: readonly Expense[], language: Locales) =>
   expenses.filter((expense) => {
     const merchant = expense.merchant.toLowerCase(),
       first = expense.user.first.toLowerCase(),
@@ -22,7 +21,7 @@ const findExpenses = (searchTerms: string[], expenses: readonly Expense[], langu
         amount.includes(term)
     )
 
-    return Array.isArray(result) && result.length
+    return isNotEmpty(result)
   })
 
 export default findExpenses
