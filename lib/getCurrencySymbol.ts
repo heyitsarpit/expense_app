@@ -4,7 +4,9 @@ const currencySymbols: Record<string, string> = {
   GBP: '£'
 }
 
-const getCurrencySymbol = (currencyCode: string): string | undefined =>
-  currencySymbols[currencyCode]
+const getCurrencySymbol = (currencyCode: string): string => {
+  currencyCode = currencyCode.toUpperCase()
+  return currencyCode in currencySymbols ? currencySymbols[currencyCode] : currencyCode
+}
 
 export default getCurrencySymbol
