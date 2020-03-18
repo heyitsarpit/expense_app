@@ -21,6 +21,11 @@ Created a single page app that shows expenses fetched from a given api.
 - Wanted to use localization libraries like `react-i18next` and `next-i18next` but I had trouble as they would break the app for some reason I couldn't figure out. So I wrote my own functions that mimic their API and way of use, ie the `useTranslation()` method in `./lib/translate.ts`
 - Used redux and typescript as they were a requirement of this test and I had learned them very recently.
 - Deployed the app with [now](https://zeit.co), but the api was deployed on AWS which was `http` and browsers just block it as not secure, shifted to heroku since.
+- Changes made after the Challenge period.
+  - Enabled server side rendering for styled-components, no flicker on first render.
+  - Added new `getStaticProps` method to populate page with some data at first load. Couldn't have been possible before as it was introduced in Next 9.3 which came out weeks after submission.
+  - The above two combined give a slightly noticeable but better experience every time you load the page.
+  - General code quality improvements and some optimization. No features were added or modified.
 
 ### Running the project
 
