@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import getCurrencySymbol from '../lib/getCurrencySymbol'
+import IntlCurrency from '../lib/getCurrencySymbol'
 import { resolveDate } from '../lib/resolveDate'
 import { receiptURL } from '../lib/resolveURL'
 import useSelector from '../lib/useSelector'
@@ -41,8 +41,8 @@ const ExpenseCard: React.FC<Expense> = ({
           </a>
         </div>
         <div className="Value">
-          {getCurrencySymbol(currency)}
-          {value}
+          {IntlCurrency(currency, value, language)}
+          {/* {value} */}
         </div>
         <div className="Merchant">{merchant}</div>
       </div>

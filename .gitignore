@@ -1,6 +1,8 @@
 # Project Dependencies
 node_modules/
 
+log
+
 # Next build files 
 .next
 
