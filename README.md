@@ -2,7 +2,7 @@
 
 Created a single page app that shows expenses fetched from a given api.
 
-##### View here - https://pleo-expense-arpit.now.sh/
+##### View here - https://expense-app.now.sh/
 
 #### Features
 
