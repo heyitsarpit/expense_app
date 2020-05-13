@@ -21,11 +21,10 @@ Created a single page app that shows expenses fetched from a given api.
 - Wanted to use localization libraries like `react-i18next` and `next-i18next` but I had trouble as they would break the app for some reason I couldn't figure out. So I wrote my own functions that mimic their API and way of use, ie the `useTranslation()` method in `./lib/translate.ts`
 - Used redux and typescript as they were a requirement of this test and I had learned them very recently.
 - Deployed the app with [now](https://zeit.co), but the api was deployed on AWS which was `http` and browsers just block it as not secure, shifted to heroku since.
-- Changes made after the Challenge period.
-  - Enabled server side rendering for styled-components, no flicker on first render.
-  - Added new `getStaticProps` method to populate page with some data at first load. Couldn't have been possible before as it was introduced in Next 9.3 which came out weeks after submission.
-  - The above two combined give a slightly noticeable but better experience every time you load the page.
-  - General code quality improvements and some optimization. No features were added or modified.
+- Enabled server side rendering for styled-components, no flicker on first render.
+- Added new `getStaticProps` method to populate page with some data at first load. Couldn't have been possible before as it was introduced in Next 9.3 which came out weeks after submission.
+- The above two combined give a slightly noticeable but better experience every time you load the page.
+- General code quality improvements and some optimization. No features were added or modified.
 
 ### Running the project
 
@@ -61,37 +60,6 @@ npm run dev
 - date-fns - Handle date related ops
 - dotenv - For setting environment variables in a .env file
 - pre-commit - Pre commit hook for git, runs prettier before every commit
-
-### Forlder Structure
-
-```
-.
-├── components - React components used in the app
-│   ├── styles - Styled components and global styling
-│   ├── types - Common Typescript types used in the app
-│   │
-├── lib - Miscellaneous utility functions used throughout the app
-│   │
-├── locales - Locales for the ap
-│   ├── de - German
-│   ├── en - English
-│   └── fr - French
-│
-├── pages - Pages, has just index.tsx currently
-│
-├── public - Static resources, placed at the root of the build directory by next
-│   ├── images
-│   └── styles - extra css files
-│
-├── redux-store - Redux logic lives here
-│   ├── expenses - State related to expenses and async requests
-│   ├── view - Store for language, theme, limit and offset fetching
-├
-├── next.config.js - Next config file, the environment variables are defined here for injecting into the app at build time
-├── .prettier - Config for prettier auto formatter
-├── .env - Your file for setting environment variables
-
-```
 
 ## Screens
 
@@ -148,10 +116,3 @@ The app is responsive and adapts to window size change.
 <p align="center">
   <img width="80%" src="https://media.giphy.com/media/KFnrNUhgLa86X1Jt9h/giphy.gif">
 </p>
-
-### Credits
-
-- [Codevolution](https://www.youtube.com/channel/UC80PWRj_ZU8Zu0HSMNVwKWw) - from whom I learned react and redux.
-- [Wes bos](https://wesbos.com/) - from whom I learned nextjs styled components.
-- [Arshad Khan](https://github.com/ar5had) - Introduced me to pleo and the design of his expense app is what I've recreated.
-- All the folks on stackoverflow and github whose code I referenced.
