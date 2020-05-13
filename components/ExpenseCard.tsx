@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import IntlCurrency from '../lib/getCurrencySymbol'
+import IntlCurrency from '../lib/IntlCurrency'
 import { resolveDate } from '../lib/resolveDate'
 import { receiptURL } from '../lib/resolveURL'
 import useSelector from '../lib/useSelector'
