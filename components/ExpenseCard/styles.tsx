@@ -1,51 +1,16 @@
 import styled from 'styled-components'
 
-export const CardItem = styled.div`
+export const CardItem = styled.a`
   cursor: pointer;
   margin: 0 auto;
   border: transparent;
+  text-decoration: none;
+  display: block;
+
+  color: inherit;
   border-bottom: solid 1px ${(props) => props.theme.colorUnfocused};
   :hover {
     border-color: ${(props) => props.theme.textPrimary};
-  }
-
-  .EditBox {
-    form {
-      display: grid;
-      grid-template-columns: 2.5fr 1fr;
-      /* grid-template-rows: 2fr 1fr; */
-      grid-template-areas: 'Comment Image' 'Save Save';
-
-      .Comment {
-        grid-area: Comment;
-        margin: 1em;
-      }
-
-      .Image {
-        grid-area: Image;
-        justify-self: right;
-      }
-
-      .Save {
-        grid-area: Save;
-        width: 40%;
-        margin: 0 auto;
-        background: transparent;
-        color: ${(props) => props.theme.textPrimary};
-        font-family: ${(props) => props.theme.fontSecondary};
-        padding: 0.2em;
-        font-size: 0.8em;
-        border: solid 1px ${(props) => props.theme.textPrimary};
-        border-radius: 1em;
-        margin-bottom: 1em;
-        :focus {
-          outline: none;
-        }
-        :disabled {
-          opacity: 0.2;
-        }
-      }
-    }
   }
 
   .grid-container {
@@ -55,8 +20,7 @@ export const CardItem = styled.div`
     grid-template-areas:
       'Date Date Date'
       'Icon Name Value'
-      'Icon Email Merchant'
-      'EditBox EditBox EditBox';
+      'Icon Email Merchant';
 
     margin-top: 0.1em;
     padding: 0.5em;
@@ -92,6 +56,7 @@ export const CardItem = styled.div`
         font-size: 0.9em;
         font-family: ${(props) => props.theme.fontSecondary};
         color: ${(props) => props.theme.textSecondary};
+        text-decoration: none;
       }
     }
 
@@ -182,3 +147,42 @@ export const CardItem = styled.div`
     }
   }
 `
+
+// .EditBox {
+//   form {
+//     display: grid;
+//     grid-template-columns: 2.5fr 1fr;
+//     /* grid-template-rows: 2fr 1fr; */
+//     grid-template-areas: 'Comment Image' 'Save Save';
+
+//     .Comment {
+//       grid-area: Comment;
+//       margin: 1em;
+//     }
+
+//     .Image {
+//       grid-area: Image;
+//       justify-self: right;
+//     }
+
+//     .Save {
+//       grid-area: Save;
+//       width: 40%;
+//       margin: 0 auto;
+//       background: transparent;
+//       color: ${(props) => props.theme.textPrimary};
+//       font-family: ${(props) => props.theme.fontSecondary};
+//       padding: 0.2em;
+//       font-size: 0.8em;
+//       border: solid 1px ${(props) => props.theme.textPrimary};
+//       border-radius: 1em;
+//       margin-bottom: 1em;
+//       :focus {
+//         outline: none;
+//       }
+//       :disabled {
+//         opacity: 0.2;
+//       }
+//     }
+//   }
+// }
