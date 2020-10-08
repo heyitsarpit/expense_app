@@ -12,15 +12,13 @@ import { DarkTheme } from './styles/Theme'
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 1.3em;
   padding: 1em;
   border: 1.5em solid ${(props) => props.theme.borderColor};
-  min-height: 100vh;
+  min-height: 100%;
 
   @media only screen and (min-width: ${(props) => props.theme.minWidthSmall}px) and (max-width: ${(
       props
     ) => props.theme.maxWidthSmall}px) {
-    margin: 1em;
     padding: 0.8em;
     border-width: 1em;
   }
@@ -28,13 +26,15 @@ const Wrapper = styled.div`
   /* SMARTPHONES LANDSCAPE */
   @media only screen and (min-width: ${(props) =>
       props.theme.minWidthMedium}px) and (max-width: ${(props) => props.theme.maxWidthMedium}px) {
-    margin: 1.1em;
     padding: 0.9em;
     border-width: 1.2em;
   }
 `
 
-const Container = styled.div`
+const Main = styled.main`
+  flex: 1;
+  position: relative;
+
   color: ${(props) => props.theme.textPrimary};
   background: ${(props) => props.theme.bgColor};
 `
@@ -49,7 +49,7 @@ const Page: React.FC = ({ children }) => {
         <GlobalStyles />
         <Wrapper>
           <Header setTheme={setTheme} />
-          <Container>{children}</Container>
+          <Main>{children}</Main>
           <Footer />
         </Wrapper>
       </ThemeProvider>

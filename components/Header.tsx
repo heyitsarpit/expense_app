@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import ColorThemeSelector from './ColorThemeSelector'
 import LanguageSelector from './LanguageSelector'
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   display: flex;
   flex-direction: row;
   justify-content: space-between;

@@ -2,14 +2,15 @@ import styled from 'styled-components'
 
 import { useTranslation } from '../lib/useTranslation'
 
-const FooterWrapper = styled.div`
+const Wrapper = styled.footer`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 2em;
   font-family: ${(props) => props.theme.fontSecondary};
   color: ${(props) => props.theme.textPrimary};
   margin: 0 auto;
+  padding-top: 1em;
+  margin-top: auto;
 `
 
 const Author = styled.a`
@@ -17,22 +18,16 @@ const Author = styled.a`
   text-decoration: none;
   color: ${(props) => props.theme.textPrimary};
 `
-const Grow = styled.div`
-  flex-grow: 1;
-`
 
 const Footer: React.FC = () => {
   const t = useTranslation()
   return (
-    <>
-      <Grow></Grow>
-      <FooterWrapper>
-        <span>{t('common:footerCredits')} &nbsp; </span>
-        <Author href="https://arpit73.netlify.com/" rel="noopener noreferrer" target="_blank">
-          Arpit Bharti
-        </Author>
-      </FooterWrapper>
-    </>
+    <Wrapper>
+      <span>{t('common:footerCredits')} &nbsp; </span>
+      <Author href="https://arpit73.netlify.com/" rel="noopener noreferrer" target="_blank">
+        Arpit Bharti
+      </Author>
+    </Wrapper>
   )
 }
 
