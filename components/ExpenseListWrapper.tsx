@@ -2,7 +2,7 @@ import { useContext } from 'react'
 
 import { isNotEmpty } from '../lib/jsUtils'
 import useSelector from '../lib/useSelector'
-import { StaticPropsCtx } from '../pages'
+import { StaticPropsCtx } from '../pages/expenses'
 import ExpenseList from './ExpenseList'
 import Pagination from './Pagination'
 

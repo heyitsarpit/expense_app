@@ -59,13 +59,18 @@ const Pagination: React.FC = () => {
   const t = useTranslation()
   return (
     <PaginationButtonWrapper>
-      <Link href={{ pathname: '/', query: { limit, offset: Math.max(offset - limit, 0) } }}>
+      <Link
+        href={{ pathname: '/expenses', query: { limit, offset: Math.max(offset - limit, 0) } }}>
         <a>
           <PaginationButton disabled={!prevActive}>{t('common:previous')}</PaginationButton>
         </a>
       </Link>
 
-      <Link href={{ pathname: '/', query: { limit, offset: Math.min(offset + limit, total) } }}>
+      <Link
+        href={{
+          pathname: '/expenses',
+          query: { limit, offset: Math.min(offset + limit, total) }
+        }}>
         <a>
           <PaginationButton disabled={!nextActive}>{t('common:next')}</PaginationButton>
         </a>

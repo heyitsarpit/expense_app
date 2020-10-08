@@ -32,7 +32,7 @@ const Custom404: React.FC = () => {
       </Head>
       <Wrapper>
         <h1>404 - The Page you're looking for does not exist</h1>
-        <Link href="/">
+        <Link href="/expenses">
           <a>Go Back Home</a>
         </Link>
       </Wrapper>
