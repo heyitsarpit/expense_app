@@ -3,7 +3,6 @@ import { GetStaticProps } from 'next'
 import { createContext } from 'react'
 
 import AppWrapper from '../components/AppWrapper'
-import Page from '../components/Page'
 import { getURL } from '../lib/resolveURL'
 import { Expense } from '../redux-store'
 
@@ -16,11 +15,9 @@ StaticPropsCtx.displayName = 'StaticPropsCtx'
 
 const Home: React.FC<HomeProps> = ({ expenses }) => {
   return (
-    <Page>
-      <StaticPropsCtx.Provider value={expenses}>
-        <AppWrapper />
-      </StaticPropsCtx.Provider>
-    </Page>
+    <StaticPropsCtx.Provider value={expenses}>
+      <AppWrapper />
+    </StaticPropsCtx.Provider>
   )
 }
 

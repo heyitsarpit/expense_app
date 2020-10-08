@@ -7,7 +7,8 @@ const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
         width: 100%;
         height: 100%;
       background: ${(props) => props.theme.bgColor};
-
+      font-family: ${(props) => props.theme.fontMain};
+      
       #__next{
         height: 100%
       }
