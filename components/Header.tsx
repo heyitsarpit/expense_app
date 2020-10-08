@@ -17,10 +17,10 @@ const Wrapper = styled.header`
   }
 `
 
-const Header: React.FC<any> = ({ setTheme }) => {
+const Header: React.FC = () => {
   return (
     <Wrapper>
-      <ColorThemeSelector setTheme={setTheme} />
+      <ColorThemeSelector />
       <LanguageSelector />
     </Wrapper>
   )

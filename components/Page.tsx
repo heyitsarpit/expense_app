@@ -1,13 +1,9 @@
-import { useState } from 'react'
-import { Provider } from 'react-redux'
-import styled, { ThemeProvider } from 'styled-components'
+import styled from 'styled-components'
 
-import Store from '../redux-store/store'
 import Footer from './Footer'
 import Header from './Header'
 import Meta from './Meta'
 import GlobalStyles from './styles/GlobalStyles'
-import { DarkTheme } from './styles/Theme'
 
 const Wrapper = styled.div`
   display: flex;
@@ -40,20 +36,16 @@ const Main = styled.main`
 `
 
 const Page: React.FC = ({ children }) => {
-  const [theme, setTheme] = useState(DarkTheme)
-
   return (
-    <Provider store={Store}>
-      <ThemeProvider theme={theme}>
-        <Meta />
-        <GlobalStyles />
-        <Wrapper>
-          <Header setTheme={setTheme} />
-          <Main>{children}</Main>
-          <Footer />
-        </Wrapper>
-      </ThemeProvider>
-    </Provider>
+    <>
+      <Meta />
+      <GlobalStyles />
+      <Wrapper>
+        <Header />
+        <Main>{children}</Main>
+        <Footer />
+      </Wrapper>
+    </>
   )
 }
 

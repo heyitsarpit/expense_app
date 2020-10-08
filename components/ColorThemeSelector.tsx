@@ -1,7 +1,6 @@
-import { useState } from 'react'
 import styled from 'styled-components'
 
-import { DarkTheme, LightTheme } from './styles/Theme'
+import useTheme from '../lib/useTheme'
 
 const moonPath = '/images/moon.svg'
 const sunPath = '/images/sun.svg'
@@ -21,15 +20,15 @@ const IMG = styled.img`
   }
 `
 
-const ColorThemeSelector: React.FC<any> = ({ setTheme }) => {
-  const [bool, setBool] = useState(true)
+const ColorThemeSelector: React.FC = () => {
+  const { setTheme, theme } = useTheme((state) => state)
 
   const onThemeChange = () => {
-    bool ? setTheme(LightTheme) : setTheme(DarkTheme)
-    setBool(!bool)
+    console.log(theme)
+    theme === 'light' ? setTheme('dark') : setTheme('light')
   }
 
-  return <IMG src={bool ? sunPath : moonPath} onClick={onThemeChange} />
+  return <IMG src={theme === 'light' ? moonPath : sunPath} onClick={onThemeChange} />
 }
 
 export default ColorThemeSelector
