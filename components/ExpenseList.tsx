@@ -16,8 +16,8 @@ const ExpenseList: React.FC<ExpenseListProps> = ({ expenses }) => {
   return (
     <List>
       {expenses.map((expense) => (
-        <li>
-          <ExpenseCard {...expense} key={expense.id} />
+        <li key={expense.id}>
+          <ExpenseCard {...expense} />
         </li>
       ))}
     </List>
