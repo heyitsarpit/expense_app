@@ -11,7 +11,10 @@ Created a single page app that shows expenses fetched from a given api.
 - Using the Intl API for currency formatting
 - introduced `zustand` for theme management (useTheme hook)
 
+##### V2 View here - https://expense-app-git-v2.arpit73.now.sh
+
 ##### View here - https://expense-app.now.sh/
+
 
 #### Features
 
