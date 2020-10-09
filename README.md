@@ -67,6 +67,8 @@ npm run dev
 - Typescript - For better development support and catching type errors
 - Redux - Library for state management
 - styled-components - Library for writing CSS in JS
+- react-query for data fetching
+- zustand for global state management
 - prettier - For auto-formatting code
 - axios - Library for network requests
 - date-fns - Handle date related ops
