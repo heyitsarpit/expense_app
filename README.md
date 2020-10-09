@@ -2,6 +2,15 @@
 
 Created a single page app that shows expenses fetched from a given api.
 
+### V2 Improvements
+
+- New expense list view page
+- New expense view page (introduced use of `react-query` for data fetching)
+- 404 page
+- search optimization with a debounce hook
+- Using the Intl API for currency formatting
+- introduced `zustand` for theme management (useTheme hook)
+
 ##### View here - https://expense-app.now.sh/
 
 #### Features
