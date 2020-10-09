@@ -12,5 +12,7 @@
   "previous": "Previous",
   "noItems": "No more items to load !!!!",
   "searchError": "No results found!",
-  "goBackButton": "Go Back"
+  "goBackButton": "Go Back",
+  "404_message": "The Page you're looking for does not exist",
+  "pageNotFound": "Page Not Found"
 }

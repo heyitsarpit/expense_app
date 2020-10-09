@@ -12,6 +12,7 @@
   "previous": "Bisherige",
   "noItems": "Keine weiteren Artikel zum Laden !!!!",
   "searchError": "Keine Ergebnisse gefunden!",
-  "goBackButton": "geh zurück"
-
+  "goBackButton": "geh zurück",
+  "404_message": "Die gesuchte Seite existiert nicht",
+  "pageNotFound": "Seite nicht gefunden"
 }
