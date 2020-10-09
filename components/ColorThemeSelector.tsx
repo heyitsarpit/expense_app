@@ -27,7 +27,9 @@ const ColorThemeSelector: React.FC = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light')
   }
 
-  return <IMG src={theme === 'light' ? moonPath : sunPath} onClick={onThemeChange} />
+  return (
+    <IMG src={theme === 'light' ? moonPath : sunPath} onClick={onThemeChange} alt="switch theme" />
+  )
 }
 
 export default ColorThemeSelector

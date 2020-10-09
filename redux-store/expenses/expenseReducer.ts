@@ -11,20 +11,22 @@ const defaultExpenses: ExpenseState = {
 const expenseReducer = (state = defaultExpenses, action: ExpenseActions): ExpenseState => {
   switch (action.type) {
     // Cases for fetching expenses
-    case ActionTypes.ASYNC_REQUEST_PENDING:
+    case ActionTypes.ASYNC_REQUEST_PENDING: {
       return {
         ...state,
         pending: true
       }
+    }
 
-    case ActionTypes.ASYNC_REQUEST_ERROR:
+    case ActionTypes.ASYNC_REQUEST_ERROR: {
       return {
         ...state,
         pending: false,
         error: action.payload
       }
+    }
 
-    case ActionTypes.FETCHING_EXPENSES_SUCCESS:
+    case ActionTypes.FETCHING_EXPENSES_SUCCESS: {
       return {
         ...state,
         pending: false,
@@ -32,8 +34,9 @@ const expenseReducer = (state = defaultExpenses, action: ExpenseActions): Expens
         expenses: action.payload[0],
         total: action.payload[1]
       }
+    }
 
-    case ActionTypes.POST_COMMENT_SUCCESS:
+    case ActionTypes.POST_COMMENT_SUCCESS: {
       const [comment_id, comment] = action.payload
       return {
         ...state,
@@ -48,8 +51,9 @@ const expenseReducer = (state = defaultExpenses, action: ExpenseActions): Expens
             : expense
         )
       }
+    }
 
-    case ActionTypes.POST_RECEIPT_SUCCESS:
+    case ActionTypes.POST_RECEIPT_SUCCESS: {
       const [receipt_id, receipt] = action.payload
       return {
         ...state,
@@ -63,6 +67,7 @@ const expenseReducer = (state = defaultExpenses, action: ExpenseActions): Expens
             : expense
         )
       }
+    }
 
     default:
       return state

@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import NProgress from 'nprogress'
 
 import IntlCurrency from '../../lib/IntlCurrency'
 import { resolveDate } from '../../lib/resolveDate'
@@ -13,13 +14,17 @@ const Expense: React.FC<{ id: string }> = ({ id }) => {
   const language = useSelector((state) => state.view.language)
 
   if (isLoading) {
+    NProgress.start()
     return <div>Loading...</div>
   }
   if (error) {
+    NProgress.done()
     return <div>Error Occurred</div>
   }
 
   // data.data is defined beyond this line
+  NProgress.done()
+
   const { date, merchant, amount, user, comment, receipts } = data?.data || {}
   const { currency, value } = amount || {}
   const { first, last, email } = user || {}

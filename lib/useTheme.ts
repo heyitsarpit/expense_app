@@ -1,6 +1,6 @@
 import create from 'zustand'
 
-import { getLocalStorage, setLocalStorage } from './localStorage'
+// import { getLocalStorage, setLocalStorage } from './localStorage'
 
 type Theme = 'light' | 'dark'
 
