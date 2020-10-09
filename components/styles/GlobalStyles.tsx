@@ -94,5 +94,4 @@ const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
   }
 `
 
-// color: ${(props) => props.theme.textPrimary};
 export default GlobalStyles
