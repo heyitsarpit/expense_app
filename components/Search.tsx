@@ -29,7 +29,7 @@ const Search: React.FC<SearchProps> = ({ setSearching, setFoundExpenses }) => {
 
   const doSearch = (searchQuery: string) => {
     if (searchQuery) {
-      const searchTerms = debouncedSearchValue.match(/\b(\w+)\b/g) as RegExpMatchArray
+      const searchTerms = searchQuery.match(/\b(\w+)\b/g) as RegExpMatchArray
       setFoundExpenses(findExpenses(searchTerms, expenses, language))
       setSearching(true)
     } else {
