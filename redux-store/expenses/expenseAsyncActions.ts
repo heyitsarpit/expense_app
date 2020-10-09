@@ -40,12 +40,12 @@ export const postComment = (id: string, comment: string) => (dispatch: Dispatche
     .post(URL, {
       comment: comment
     })
-    .then(function(response) {
+    .then(function (response) {
       NProgress.done()
 
       dispatch(postCommentSuccess(id, comment))
     })
-    .catch(function(error) {
+    .catch(function (error) {
       NProgress.done()
       dispatch(asyncRequestError(error.message))
     })

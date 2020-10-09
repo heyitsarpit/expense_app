@@ -11,6 +11,8 @@ const baseURL =
 export const getURL = (limit = 10, offset = 0) =>
   `${baseURL}/expenses?limit=${limit}&offset=${offset}`
 
+export const getExpenseById = (id: string) => `${baseURL}/expenses/${id}`
+
 export const postURL = (id: string, receipts?: boolean) =>
   receipts ? `${baseURL}/expenses/${id}/receipts` : `${baseURL}/expenses/${id}`
 
