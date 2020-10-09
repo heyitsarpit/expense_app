@@ -24,7 +24,6 @@ const ColorThemeSelector: React.FC = () => {
   const { setTheme, theme } = useTheme((state) => state)
 
   const onThemeChange = () => {
-    console.log(theme)
     theme === 'light' ? setTheme('dark') : setTheme('light')
   }
 

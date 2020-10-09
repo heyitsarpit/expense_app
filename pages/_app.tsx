@@ -1,5 +1,5 @@
 import { AppProps } from 'next/app'
-import { useState } from 'react'
+import { useEffect } from 'react'
 import { QueryCache, ReactQueryCacheProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query-devtools'
 import { Provider } from 'react-redux'
@@ -17,15 +17,15 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <>
-      <Provider store={Store}>
-        <ThemeProvider theme={theme === 'light' ? LightTheme : DarkTheme}>
+      <ThemeProvider theme={theme === 'light' ? LightTheme : DarkTheme}>
+        <Provider store={Store}>
           <ReactQueryCacheProvider queryCache={queryCache}>
             <Page>
               <Component {...pageProps} />
             </Page>
           </ReactQueryCacheProvider>
-        </ThemeProvider>
-      </Provider>
+        </Provider>
+      </ThemeProvider>
 
       <ReactQueryDevtools initialIsOpen={false} />
     </>
