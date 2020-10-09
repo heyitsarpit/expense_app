@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 
 import findExpenses from '../lib/findExpenses'
+import useDebounce from '../lib/useDebounce'
 import useSelector from '../lib/useSelector'
 import { useTranslation } from '../lib/useTranslation'
 import { Expense } from '../redux-store'
@@ -20,15 +21,15 @@ const Search: React.FC<SearchProps> = ({ setSearching, setFoundExpenses }) => {
   const { expenses } = useSelector((state) => state.expenses)
 
   const [searchValue, setSearchValue] = useState('')
+  const debouncedSearchValue = useDebounce(searchValue, 50)
 
   useEffect(() => {
-    doSearch()
-  }, [searchValue])
+    doSearch(debouncedSearchValue)
+  }, [debouncedSearchValue])
 
-  const doSearch = () => {
-    if (searchValue) {
-      //removes whitespace, notice the `!` at the end, non nullable type assertion
-      const searchTerms = searchValue.match(/\b(\w+)\b/g)!
+  const doSearch = (searchQuery: string) => {
+    if (searchQuery) {
+      const searchTerms = debouncedSearchValue.match(/\b(\w+)\b/g) as RegExpMatchArray
       setFoundExpenses(findExpenses(searchTerms, expenses, language))
       setSearching(true)
     } else {
@@ -43,7 +44,7 @@ const Search: React.FC<SearchProps> = ({ setSearching, setFoundExpenses }) => {
 
   const onQuerySearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    doSearch()
+    doSearch(debouncedSearchValue)
   }
 
   const t = useTranslation()
@@ -56,7 +57,7 @@ const Search: React.FC<SearchProps> = ({ setSearching, setFoundExpenses }) => {
         placeholder={t('common:searchPlaceholder')}
       />
       <SearchButton type="submit">
-        <img src={searchImgPath} />
+        <img src={searchImgPath} alt="search" />
       </SearchButton>
     </SearchBox>
   )
