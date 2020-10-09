@@ -11,5 +11,6 @@
   "next": "Next",
   "previous": "Previous",
   "noItems": "No more items to load !!!!",
-  "searchError": "No results found!"
+  "searchError": "No results found!",
+  "goBackButton": "Go Back"
 }

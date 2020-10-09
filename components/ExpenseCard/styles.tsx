@@ -52,12 +52,10 @@ export const CardItem = styled.a`
 
     .Email {
       grid-area: Email;
-      a {
-        font-size: 0.9em;
-        font-family: ${(props) => props.theme.fontSecondary};
-        color: ${(props) => props.theme.textSecondary};
-        text-decoration: none;
-      }
+      font-size: 0.9em;
+      font-family: ${(props) => props.theme.fontSecondary};
+      color: ${(props) => props.theme.textSecondary};
+      text-decoration: none;
     }
 
     .Value {
@@ -107,9 +105,7 @@ export const CardItem = styled.a`
         font-size: 0.8em;
       }
       .Email {
-        a {
-          font-size: 0.7em;
-        }
+        font-size: 0.7em;
       }
       .Date {
         font-size: 0.8em;
@@ -137,9 +133,7 @@ export const CardItem = styled.a`
         font-size: 0 75em;
       }
       .Email {
-        a {
-          font-size: 0.7em;
-        }
+        font-size: 0.7em;
       }
       .Date {
         font-size: 0.75em;
@@ -147,42 +141,3 @@ export const CardItem = styled.a`
     }
   }
 `
-
-// .EditBox {
-//   form {
-//     display: grid;
-//     grid-template-columns: 2.5fr 1fr;
-//     /* grid-template-rows: 2fr 1fr; */
-//     grid-template-areas: 'Comment Image' 'Save Save';
-
-//     .Comment {
-//       grid-area: Comment;
-//       margin: 1em;
-//     }
-
-//     .Image {
-//       grid-area: Image;
-//       justify-self: right;
-//     }
-
-//     .Save {
-//       grid-area: Save;
-//       width: 40%;
-//       margin: 0 auto;
-//       background: transparent;
-//       color: ${(props) => props.theme.textPrimary};
-//       font-family: ${(props) => props.theme.fontSecondary};
-//       padding: 0.2em;
-//       font-size: 0.8em;
-//       border: solid 1px ${(props) => props.theme.textPrimary};
-//       border-radius: 1em;
-//       margin-bottom: 1em;
-//       :focus {
-//         outline: none;
-//       }
-//       :disabled {
-//         opacity: 0.2;
-//       }
-//     }
-//   }
-// }

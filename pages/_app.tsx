@@ -16,17 +16,16 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <>
-      <ThemeProvider theme={theme === 'light' ? LightTheme : DarkTheme}>
-        <Provider store={Store}>
-          <ReactQueryCacheProvider queryCache={queryCache}>
+      <ReactQueryCacheProvider queryCache={queryCache}>
+        <ThemeProvider theme={theme === 'light' ? LightTheme : DarkTheme}>
+          <Provider store={Store}>
             <Page>
               <Component {...pageProps} />
             </Page>
-          </ReactQueryCacheProvider>
-        </Provider>
-      </ThemeProvider>
-
-      <ReactQueryDevtools initialIsOpen={false} />
+          </Provider>
+        </ThemeProvider>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </ReactQueryCacheProvider>
     </>
   )
 }

@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import styled from 'styled-components'
 
 import Expense from '../../components/Expense'
+import { useTranslation } from '../../lib/useTranslation'
 
 const Wrapper = styled.div`
   position: absolute;
@@ -16,7 +17,7 @@ const Wrapper = styled.div`
 
 const GoBack = styled.button`
   background: transparent;
-  border: 1px solid ${(props) => props.theme.textPrimary};
+  border: none;
   border-radius: 5px;
   padding: 0.5em;
   margin: 0.5em;
@@ -28,9 +29,10 @@ const SingleExpense: React.FC = () => {
   const router = useRouter()
   const { query } = router
 
+  const t = useTranslation()
   return (
     <Wrapper>
-      <GoBack onClick={() => router.back()}> &larr; Go Back</GoBack>
+      <GoBack onClick={() => router.back()}> &#129064; {t('common:goBackButton')}</GoBack>
       <Expense id={query.id as string} />
     </Wrapper>
   )

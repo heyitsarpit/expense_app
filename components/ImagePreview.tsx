@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import styled from 'styled-components'
 
 import { useTranslation } from '../lib/useTranslation'
 import { Modal, PreviewWrapper, UpdateImage } from './styles/ImagePreviewStyles'
@@ -9,6 +10,10 @@ interface ImagePreviewProps {
   setActive: (bool: boolean) => void
 }
 
+const Button = styled.button`
+  background: transparent;
+  border: none;
+`
 const ImagePreview: React.FC<ImagePreviewProps> = ({ image, updateImage, setActive }) => {
   const [fullScreen, setFullScreen] = useState(false)
 
@@ -20,23 +25,17 @@ const ImagePreview: React.FC<ImagePreviewProps> = ({ image, updateImage, setActi
   const t = useTranslation()
   return (
     <PreviewWrapper>
-      <img
-        className="preview-image"
-        src={image}
-        onClick={() => setFullScreen(true)}
-        alt="Preview"
-      />
-      {image && (
-        <div>
-          <UpdateImage onClick={onUpdate}>{t('common:updateImage')}</UpdateImage>
-        </div>
-      )}
+      <Button onClick={() => setFullScreen(true)}>
+        <img className="preview-image" src={image} alt="Preview" />
+      </Button>
+
+      {image && <UpdateImage onClick={onUpdate}>{t('common:updateImage')}</UpdateImage>}
       {fullScreen && (
         <Modal>
-          <div className="close" onClick={() => setFullScreen(false)}>
+          <Button className="close" onClick={() => setFullScreen(false)}>
             &times;
-          </div>
-          <img className="modal-image" src={image} />
+          </Button>
+          <img className="modal-image" src={image} alt="receipt preview" />
         </Modal>
       )}
     </PreviewWrapper>

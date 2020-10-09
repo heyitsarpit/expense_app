@@ -12,7 +12,11 @@ const ImageInputWrapper = styled.div`
   label {
     cursor: pointer;
 
-    width: 90%;
+    width: 7em;
+    height: 7em;
+    border-radius: 1em;
+    vertical-align: center;
+
     color: ${(props) => props.theme.textPrimary};
     font-family: ${(props) => props.theme.fontSecondary};
     padding: 0.2em;

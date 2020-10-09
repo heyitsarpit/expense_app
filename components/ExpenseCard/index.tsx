@@ -1,9 +1,7 @@
 import Link from 'next/link'
-import { useState } from 'react'
 
 import IntlCurrency from '../../lib/IntlCurrency'
 import { resolveDate } from '../../lib/resolveDate'
-import { receiptURL } from '../../lib/resolveURL'
 import useSelector from '../../lib/useSelector'
 import { Expense } from '../../redux-store'
 import { CardItem } from './styles'
@@ -28,15 +26,8 @@ const ExpenseCard: React.FC<Expense> = ({
           <div className="Name">
             {first} {last}
           </div>
-          <div className="Email">
-            <a href={`mailto:${email}`} rel="noopener noreferrer" target="_blank">
-              {email}
-            </a>
-          </div>
-          <div className="Value">
-            {IntlCurrency(currency, value, language)}
-            {/* {value} */}
-          </div>
+          <div className="Email">{email}</div>
+          <div className="Value">{IntlCurrency(currency, value, language)}</div>
           <div className="Merchant">{merchant}</div>
         </div>
       </CardItem>
@@ -45,16 +36,3 @@ const ExpenseCard: React.FC<Expense> = ({
 }
 
 export default ExpenseCard
-
-{
-  /* <div className="EditBox">
-{editing && (
-  <ExpenseEdit
-    receiptSrc={receiptSrc}
-    id={id}
-    toggleEditing={toggleEditing}
-    storedComment={comment}
-  />
-)}
-</div> */
-}

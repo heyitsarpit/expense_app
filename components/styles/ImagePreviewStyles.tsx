@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
 export const PreviewWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   .preview-image {
     width: 7em;
     height: 7em;
@@ -20,7 +24,7 @@ export const PreviewWrapper = styled.div`
 `
 
 export const UpdateImage = styled.button`
-  width: 90%;
+  width: 30%;
   background: transparent;
   color: ${(props) => props.theme.textPrimary};
   font-family: ${(props) => props.theme.fontSecondary};
