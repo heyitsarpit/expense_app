@@ -1,7 +1,7 @@
 {
   "name": "expense_app",
   "version": "1.0.0",
-  "description": "An app that lists expenses and allows upload of receipts. Pleo frontend challenge",
+  "description": "An app that lists expenses and allows upload of receipts",
   "main": "index.js",
   "author": "Arpit Bharti<arpitbharti73@gmail.com>",
   "repository": "https://github.com/arpit73/expense_app",
@@ -12,8 +12,8 @@
     "redux",
     "typescript",
     "styled-components",
-    "pleo",
-    "challenge"
+    "react-query",
+    "zustand"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -1,20 +1,23 @@
-# Pleo Frontend Challenge
+# Expense App
 
-Created a single page app that shows expenses fetched from a given api.
-
-### V2 Improvements
-
-- New expense list view page
-- New expense view page (introduced use of `react-query` for data fetching)
-- 404 page
-- search optimization with a debounce hook
-- Using the Intl API for currency formatting
-- introduced `zustand` for theme management (useTheme hook)
-
-##### V2 View here - https://expense-app-git-v2.arpit73.now.sh
+Created a server side rendered react application that shows expenses fetched from a given api.
 
 ##### View here - https://expense-app.now.sh/
 
+### Technologies used
+
+- ReactJS
+- NextJs - Framework for react
+- Typescript - For better development support and catching type errors
+- Redux - Library for state management
+- styled-components - Library for writing CSS in JS
+- react-query for data fetching
+- zustand for global state management
+- prettier - For auto-formatting code
+- axios - Library for network requests
+- date-fns - Handle date related ops
+- dotenv - For setting environment variables in a .env file
+- pre-commit - Pre commit hook for git, runs prettier before every commit
 
 #### Features
 
@@ -25,18 +28,16 @@ Created a single page app that shows expenses fetched from a given api.
 - View preview of said image
 - Localization - Supports languages English, French and German
 - Dark mode
-- Responsive design(somewhat)
+- Responsive design
 
-#### Comments
+## Recent Improvements
 
-- I Used `Next JS` but the app isn't server rendered, I currently just export it as a static website. Can be deployed on github pages, netlify.
-- Wanted to use localization libraries like `react-i18next` and `next-i18next` but I had trouble as they would break the app for some reason I couldn't figure out. So I wrote my own functions that mimic their API and way of use, ie the `useTranslation()` method in `./lib/translate.ts`
-- Used redux and typescript as they were a requirement of this test and I had learned them very recently.
-- Deployed the app with [now](https://zeit.co), but the api was deployed on AWS which was `http` and browsers just block it as not secure, shifted to heroku since.
-- Enabled server side rendering for styled-components, no flicker on first render.
-- Added new `getStaticProps` method to populate page with some data at first load. Couldn't have been possible before as it was introduced in Next 9.3 which came out weeks after submission.
-- The above two combined give a slightly noticeable but better experience every time you load the page.
-- General code quality improvements and some optimization. No features were added or modified.
+- New expense list view page
+- New expense view page (introduced use of `react-query` for data fetching)
+- 404 page
+- search optimization with a debounce hook
+- Using the Intl API for currency formatting
+- introduced `zustand` for theme management (useTheme hook)
 
 ### Running the project
 
@@ -60,20 +61,16 @@ npm i
 npm run dev
 ```
 
-### Technologies used
+#### Comments
 
-- ReactJS
-- NextJs - Framework for react
-- Typescript - For better development support and catching type errors
-- Redux - Library for state management
-- styled-components - Library for writing CSS in JS
-- react-query for data fetching
-- zustand for global state management
-- prettier - For auto-formatting code
-- axios - Library for network requests
-- date-fns - Handle date related ops
-- dotenv - For setting environment variables in a .env file
-- pre-commit - Pre commit hook for git, runs prettier before every commit
+- I Used `Next JS` but the app isn't server rendered, I currently just export it as a static website. Can be deployed on github pages, netlify.
+- Wanted to use localization libraries like `react-i18next` and `next-i18next` but I had trouble as they would break the app for some reason I couldn't figure out. So I wrote my own functions that mimic their API and way of use, ie the `useTranslation()` method in `./lib/translate.ts`
+- Used redux and typescript as they were a requirement of this test and I had learned them very recently.
+- Deployed the app with [vercel](https://vercel.com), but the api was deployed on AWS which was `http` and browsers just block it as not secure, shifted to heroku since.
+- Enabled server side rendering for styled-components, no flicker on first render.
+- Added new `getStaticProps` method to populate page with some data at first load. Couldn't have been possible before as it was introduced in Next 9.3 which came out weeks after submission.
+- The above two combined give a slightly noticeable but better experience every time you load the page.
+- General code quality improvements and some optimization. No features were added or modified.
 
 ## Screens
 
