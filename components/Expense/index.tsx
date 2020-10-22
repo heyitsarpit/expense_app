@@ -12,18 +12,19 @@ import { Currency, DataField, Date, Label, Value, Wrapper } from './styles'
 const Expense: React.FC<{ id: string }> = ({ id }) => {
   const { isLoading, data, error } = useExpenseById(id)
   const language = useSelector((state) => state.view.language)
+  const isBrowser = typeof window !== 'undefined'
 
   if (isLoading) {
-    NProgress.start()
+    if (isBrowser) NProgress.start()
     return <div>Loading...</div>
   }
   if (error) {
-    NProgress.done()
+    if (isBrowser) NProgress.done()
     return <div>Error Occurred</div>
   }
 
   // data.data is defined beyond this line
-  NProgress.done()
+  if (isBrowser) NProgress.done()
 
   const { date, merchant, amount, user, comment, receipts } = data?.data || {}
   const { currency, value } = amount || {}
